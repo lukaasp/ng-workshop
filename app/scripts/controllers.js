@@ -9,6 +9,11 @@ biometricsControllers.controller('ListCtrl', ['$scope', 'Faces',
     //$scope.faces = Faces.get();
   }]);
 
+biometricsControllers.controller('MainCtrl', ['$scope', 'Faces',
+    function($scope, Faces) {
+        //$scope.faces = Faces.get();
+    }]);
+
 biometricsControllers.controller('LiveCaptureCtrl', ['$scope', 'Faces',
   function($scope, Faces) {
 
@@ -26,7 +31,6 @@ biometricsControllers.controller('LiveCaptureCtrl', ['$scope', 'Faces',
 
           var data = canvas.toDataURL('image/jpeg');
           $scope.dataURL = data;
-          console.log(data);
           data = data.substr(data.indexOf(';base64,') + ';base64,'.length);
 
           $scope.faces = Faces.post({data:data});
@@ -34,7 +38,5 @@ biometricsControllers.controller('LiveCaptureCtrl', ['$scope', 'Faces',
 
       $scope.enroll = function(){
           video = $scope.identifyChannel.video;
-          console.log('eeeeeee');
       };
-
   }]);

@@ -21,7 +21,7 @@ biometricsApp.config(['$routeProvider',
         controller: 'EnrollCtrl'
       }).
       when('/picture', {
-        templateUrl: 'scripts/layouts/getPicture.html',
+        templateUrl: 'scripts/layouts/get_picture.html',
         controller: 'PictureCtrl'
       }).
       when('/identify', {
@@ -35,6 +35,10 @@ biometricsApp.config(['$routeProvider',
       when('/livecapture', {
         templateUrl: 'scripts/layouts/live_capture.html',
         controller: 'LiveCaptureCtrl'
+      }).
+      when('/', {
+        templateUrl: 'scripts/layouts/main.html',
+        controller: 'MainCtrl'
       }).
       otherwise({
         redirectTo: '/'
