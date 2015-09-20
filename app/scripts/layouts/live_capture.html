@@ -1,0 +1,17 @@
+<form class="form-inline outlined">
+    <h6>Live capture</h6>
+    <div class="form-group">
+        <label for="liveCaptureName">Name</label>
+        <input id="liveCaptureName" ng-model="liveCaptureName" type="text" class="form-control"  placeholder="Enter name">
+    </div>
+    <div class="topspace embed-responsive embed-responsive-4by3 img-div">
+        <webcam channel="identifyChannel"></webcam>
+    </div>
+    <div class="form-group">
+        <img data-ng-src="{{dataURL}}"/>
+    </div>
+    <div class="form-group">
+        <button id="identifyLiveCapture" ng-show="showIdentify" type="submit" class="btn btn-default" ng-click="identify()">identify</button>
+        <button id="enrollLiveCapture" ng-show="showEnroll" type="submit" class="btn btn-default" ng-click="enroll()">enroll</button>
+    </div>
+</form>

@@ -1,0 +1,31 @@
+body {
+    background: #fafafa;
+    padding-top: 70px;
+}
+
+.hero-unit {
+    margin: 50px auto 0 auto;
+    width: 300px;
+}
+
+.outlined{
+    padding: 5px;
+    border: 1px solid #a5a5a5;
+}
+
+.topspace{
+    margin: 10px 0 0 0;
+}
+
+.video-canvas{
+    background-color: grey;
+}
+
+.img-div{
+    width:200px;
+    height:200px;
+}
+
+.hidden{
+    display: none;
+}

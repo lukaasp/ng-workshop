@@ -1,0 +1,23 @@
+{
+  "name": "aowp-angular-workshop",
+  "version": "0.0.1",
+  "dependencies": {
+    "angular": "~1.4.6",
+    "angular-bootstrap": "~0.13.4",
+    "angular-local-storage": "~0.2.2",
+    "angular-resource": "~1.4.5",
+    "angular-route": "~1.4.6",
+    "angular-ui-router": "~0.2.15",
+    "bootstrap": "~3.3.5",
+    "font-awesome": "~4.4.0",
+    "jquery": "~2.1.4",
+    "requirejs": "~2.1.20",
+    "webcam": "webcam-directive#~3.0.0"
+  },
+  "devDependencies": {
+    "bardjs": "~0.1.4"
+  },
+  "resolutions": {
+    "angular": "1.4.6"
+  }
+}
