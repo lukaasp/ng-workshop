@@ -29,8 +29,7 @@ biometricsControllers.controller('LiveCaptureCtrl', ['$scope', 'Faces',
           console.log(data);
           data = data.substr(data.indexOf(';base64,') + ';base64,'.length);
 
-          //$scope.faces = Faces.post();
-
+          $scope.faces = Faces.post({data:data});
       };
 
       $scope.enroll = function(){
