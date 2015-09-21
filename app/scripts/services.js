@@ -11,3 +11,10 @@ biometricsServices.factory('Faces', ['$resource',
       post: {method:'POST'}
     });
 }]);
+
+biometricsServices.factory('Identify', ['$resource',
+    function($resource){
+        return $resource('/openbr/identify', {}, {
+            post: {method:'POST',isArray:true}
+        });
+}]);

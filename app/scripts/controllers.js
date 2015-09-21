@@ -25,8 +25,8 @@ biometricsControllers.controller('PictureCtrl', ['$scope',
         }
     }]);
 
-biometricsControllers.controller('LiveCaptureCtrl', ['$scope', 'Faces',
-    function ($scope, Faces) {
+biometricsControllers.controller('LiveCaptureCtrl', ['$scope', 'Identify',
+    function ($scope, Identify) {
 
         $scope.showIdentify = true;
         $scope.showEnroll = true;
@@ -44,7 +44,7 @@ biometricsControllers.controller('LiveCaptureCtrl', ['$scope', 'Faces',
             $scope.dataURL = data;
             data = data.substr(data.indexOf(';base64,') + ';base64,'.length);
 
-            $scope.faces = Faces.post({data: data});
+            $scope.matches = Identify.post(JSON.stringify({'image':data}));
         };
 
         $scope.enroll = function () {
