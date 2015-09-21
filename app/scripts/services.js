@@ -7,7 +7,7 @@ var biometricsServices = angular.module('biometricsServices', ['ngResource']);
 biometricsServices.factory('Faces', ['$resource',
   function($resource){
     return $resource('/openbr/faces', {}, {
-      get: {method:'GET'},
+      get: {method:'GET',isArray:true},
       post: {method:'POST'}
     });
 }]);

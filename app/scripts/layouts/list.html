@@ -1,7 +1,7 @@
-<form class="form-inline outlined">
+<form class="form-inline outlined" ng-controller="ListCtrl">
     <h6>List</h6>
     <div class="form-group">
-        <button id="listButton" type="submit" class="btn btn-default">list</button>
-        <div id="list_status_bar"></div>
+        <button ng-click="listFaces()" type="submit" class="btn btn-default">list</button>
+        <span ng-repeat="face in faces">{{face.name}}|</span>
     </div>
 </form>

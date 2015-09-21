@@ -48,12 +48,7 @@ module.exports = function(grunt) {
             },
             proxies: [
                 {
-                    context: ['/myfaces'],
-                    host: '52.16.121.219',
-                    port: 80
-                },
-                {
-                    context: ['/api'],
+                    context: ['/openbr'],
                     host: 'localhost',
                     port: 8001
                 }
