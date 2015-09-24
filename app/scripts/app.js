@@ -33,12 +33,11 @@ biometricsApp.config(['$routeProvider',
         controller: 'ListCtrl'
       }).
       when('/livecapture', {
-        templateUrl: 'scripts/layouts/live_capture.html'/*,
-        controller: 'LiveCaptureCtrl'*/
+        templateUrl: 'scripts/layouts/live_capture.html',
+        controller: 'LiveCaptureCtrl'
       }).
       when('/', {
-        templateUrl: 'scripts/layouts/main.html',
-        controller: 'MainCtrl'
+        templateUrl: 'scripts/layouts/main.html'
       }).
       otherwise({
         redirectTo: '/'

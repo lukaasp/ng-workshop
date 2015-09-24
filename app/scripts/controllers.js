@@ -11,9 +11,14 @@ biometricsControllers.controller('ListCtrl', ['$scope', 'Faces',
         }
     }]);
 
-biometricsControllers.controller('MainCtrl', ['$scope', 'Faces',
-    function ($scope, Faces) {
-        //$scope.faces = Faces.get();
+biometricsControllers.controller('DeleteCtrl', ['$scope', '$routeParams', 'User',
+    function($scope, $routeParams, User) {
+        $scope.delete = function(){
+            User.delete({id: $scope.deleteName}, function(response) {
+                $scope.response = response;
+                $scope.showStatus = true;
+            });
+        };
     }]);
 
 biometricsControllers.controller('PictureCtrl', ['$scope',

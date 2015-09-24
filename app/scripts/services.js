@@ -18,3 +18,12 @@ biometricsServices.factory('Identify', ['$resource',
             post: {method:'POST',isArray:true}
         });
 }]);
+
+
+
+biometricsServices.factory('User', ['$resource',
+    function($resource){
+        return $resource('/openbr/faces/:id', {}, {
+            delete: {method:'DELETE'}
+        });
+    }]);
