@@ -19,8 +19,6 @@ biometricsServices.factory('Identify', ['$resource',
         });
 }]);
 
-
-
 biometricsServices.factory('User', ['$resource',
     function($resource){
         return $resource('/openbr/faces/:id', {}, {
