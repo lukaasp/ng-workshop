@@ -4,6 +4,26 @@
 
 var biometricsControllers = angular.module('biometricsControllers', []);
 
+biometricsControllers.controller('FileEnrollCtrl', ['$scope', 'Faces',
+    function ($scope, Faces) {
+        var data = {};
+
+        $scope.getImage = function(obj){
+            $scope.fileEnrollStatus = false;
+            $scope.isDisabled = false;
+            data = obj.imageFile.data;
+            $scope.enrollDataURL = data;
+        };
+
+        $scope.enrollFile = function(){
+            var dataStripped = data.substr(data.indexOf(';base64,') + ';base64,'.length);
+
+            $scope.fileEnrollResponse = Faces.post({name: $scope.fileName, image: dataStripped});
+            $scope.fileEnrollStatus = true;
+            $scope.isDisabled = true;
+        };
+    }]);
+
 biometricsControllers.controller('ListCtrl', ['$scope', 'Faces',
     function ($scope, Faces) {
         $scope.listFaces = function () {

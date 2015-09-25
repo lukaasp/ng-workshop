@@ -11,6 +11,7 @@
     "bootstrap": "~3.3.5",
     "font-awesome": "~4.4.0",
     "jquery": "~2.1.4",
+    "ng-file-model": "*",
     "requirejs": "~2.1.20",
     "webcam": "webcam-directive#~3.0.0"
   },

@@ -5,6 +5,7 @@
 var biometricsApp = angular.module('biometricsApp', [
   'webcam',
   'ngRoute',
+  'ng-file-model',
   'biometricsControllers',
   'biometricsServices'
 ]);
@@ -18,7 +19,7 @@ biometricsApp.config(['$routeProvider',
       }).
       when('/enroll', {
         templateUrl: 'scripts/layouts/enroll.html',
-        controller: 'EnrollCtrl'
+        controller: 'FileEnrollCtrl'
       }).
       when('/picture', {
         templateUrl: 'scripts/layouts/get_picture.html',
