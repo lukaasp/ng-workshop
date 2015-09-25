@@ -11,9 +11,9 @@ biometricsControllers.controller('ListCtrl', ['$scope', 'Faces',
         }
     }]);
 
-biometricsControllers.controller('DeleteCtrl', ['$scope', '$routeParams', 'User',
-    function ($scope, $routeParams, User) {
-        $scope.delete = function () {
+biometricsControllers.controller('DeleteCtrl', ['$scope', 'User',
+    function ($scope, User) {
+        $scope.deleteUser = function () {
             User.delete({id: $scope.deleteName}, function (response) {
                 $scope.response = response;
                 $scope.showStatus = true;
@@ -40,7 +40,7 @@ biometricsControllers.controller('LiveCaptureCtrl', ['$scope', 'Identify', 'Face
 
         $scope.identify = function () {
             $scope.getData();
-            $scope.matches = Identify.post(JSON.stringify({image: data}));
+            $scope.matches = Identify.post({image: data});
         };
 
         $scope.enroll = function () {

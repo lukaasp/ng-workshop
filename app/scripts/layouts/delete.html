@@ -5,7 +5,7 @@
         <input type="text" class="form-control" id="deleteName" ng-model="deleteName" placeholder="Enter name">
     </div>
     <div class="form-group">
-        <button id="deleteButton" ng-click="delete()" type="submit" class="btn btn-default">delete</button>
+        <button id="deleteButton" ng-click="deleteUser()" type="submit" class="btn btn-default">delete</button>
     </div>
     <label ng-show="showStatus"> Deleted: {{response.deleted}}, Left: <span ng-repeat="user in response.left">{{user.name}}|</span></label>
 </form>
