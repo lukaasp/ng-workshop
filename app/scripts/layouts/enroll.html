@@ -1,12 +1,15 @@
-<div ng-controller="FileEnrollCtrl">
+<div ng-controller="FileEnrollCtrl" class="form-inline outlined">
     <form ng-submit="getImage(obj)">
         <div class="topspace embed-responsive embed-responsive-4by3" ng-init="isDisabled = true">
             <label for="fileName">Name</label>
             <input type="text" class="form-control" id="fileName" ng-model="fileName" placeholder="Enter name">
             <input type="file" ng-file-model="obj.imageFile"/>
-            <input type="submit" class="btn btn-default" value="get image"/>
-            <input ng-disabled="isDisabled" type="submit" ng-click="enrollFile()" class="btn btn-success"
-                   value="enroll"/>
+
+            <div class="form-group topspace">
+                <button type="submit" class="btn btn-default"><i class="fa fa-upload"></i> get image</button>
+                <button ng-disabled="isDisabled" type="submit" ng-click="enrollFile()" class="btn btn-success"><i
+                        class="fa fa-floppy-o"> enroll</i></button>
+            </div>
             <img class="img-responsive" data-ng-src="{{enrollDataURL}}"/>
             <span ng-show="fileEnrollStatus">{{fileEnrollResponse.name}} enrolled ...</span>
         </div>

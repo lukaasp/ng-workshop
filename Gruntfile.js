@@ -49,8 +49,8 @@ module.exports = function(grunt) {
             proxies: [
                 {
                     context: ['/openbr'],
-                    host: 'localhost',
-                    port: 8001
+                    host: 'aowp-workshop-backend-ef23ed36-1.lukaasp.cont.tutum.io',
+                    port: 80
                 }
             ],
             livereload: {
@@ -131,11 +131,10 @@ module.exports = function(grunt) {
             },
             localDependencies: {
                 options: {
-                    ignorePath: ['app','test']
+                    ignorePath: ['app']
                 },
                 files: {
                     'test/index.html': [
-                        'test/test-helpers/**/*.js',
                         'app/scripts/**/*.module.js',
                         'app/scripts/**/*.js'
                     ]
@@ -162,26 +161,6 @@ module.exports = function(grunt) {
         'clean:server',
         'configureProxies',
         'connect:livereload',
-        'open',
-        'watch'
-    ]);
-
-    grunt.registerTask('test', function (isConnected) {
-        isConnected = Boolean(isConnected);
-        var testTasks = [
-            'clean:server',
-            'karma:dev'
-        ];
-
-        return grunt.task.run(testTasks);
-    });
-
-    grunt.registerTask('test:browser', [
-        'clean:server',
-        'ngtemplates:test',
-        'wiredep:test',
-        'injector',
-        'connect:testInBrowser',
         'open',
         'watch'
     ]);
