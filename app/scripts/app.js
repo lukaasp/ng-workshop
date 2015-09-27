@@ -25,10 +25,6 @@ biometricsApp.config(['$routeProvider',
         templateUrl: 'scripts/layouts/get_picture.html',
         controller: 'PictureCtrl'
       }).
-      when('/identify', {
-        templateUrl: 'scripts/layouts/identify.html',
-        controller: 'IdentifyCtrl'
-      }).
       when('/list', {
         templateUrl: 'scripts/layouts/list.html',
         controller: 'ListCtrl'
