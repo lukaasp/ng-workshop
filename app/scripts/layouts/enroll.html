@@ -10,7 +10,7 @@
                 <button ng-disabled="isDisabled" type="submit" ng-click="enrollFile()" class="btn btn-success"><i
                         class="fa fa-floppy-o"> enroll</i></button>
             </div>
-            <img class="img-responsive" data-ng-src="{{enrollDataURL}}"/>
+            <img class="img-responsive topspace" data-ng-src="{{enrollDataURL}}"/>
             <span ng-show="fileEnrollStatus">{{fileEnrollResponse.name}} enrolled ...</span>
         </div>
     </form>

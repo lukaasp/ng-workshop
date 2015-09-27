@@ -49,7 +49,7 @@ module.exports = function(grunt) {
             proxies: [
                 {
                     context: ['/openbr'],
-                    host: 'aowp-workshop-backend-ef23ed36-1.lukaasp.cont.tutum.io',
+                    host: 'aowp-workshop-backend.lukaasp.svc.tutum.io',
                     port: 80
                 }
             ],
