@@ -1,7 +1,5 @@
 'use strict';
 
-/* Controllers */
-
 var biometricsControllers = angular.module('biometricsControllers', []);
 
 var strip64 = function(data){

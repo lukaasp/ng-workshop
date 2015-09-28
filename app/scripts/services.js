@@ -1,7 +1,5 @@
 'use strict';
 
-/* Services */
-
 var biometricsServices = angular.module('biometricsServices', ['ngResource']);
 
 biometricsServices.factory('Faces', ['$resource',

@@ -1,7 +1,5 @@
 'use strict';
 
-/* App Module */
-
 var biometricsApp = angular.module('biometricsApp', [
   'webcam',
   'ngRoute',
