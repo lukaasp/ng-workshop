@@ -2,8 +2,8 @@
     <h6>Delete</h6>
     <div class="form-group">
         <label for="deleteName">Name</label>
-        <input type="text" class="form-control" id="deleteName" ng-model="deleteName" placeholder="Enter name">
-        <button id="deleteButton" ng-click="deleteUser()" type="submit" class="btn btn-danger"><i class="fa fa-times"></i> delete</button>
+        <input id="deleteName" type="text" class="form-control" ng-model="deleteName" placeholder="Enter name">
+        <button ng-click="deleteUser()" type="submit" class="btn btn-danger"><i class="fa fa-times"></i> delete</button>
     </div>
     <label ng-show="showStatus"> Deleted: {{response.deleted}}, Left: <span ng-repeat="user in response.left">{{user.name}}|</span></label>
 </form>

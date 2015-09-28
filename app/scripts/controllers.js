@@ -4,6 +4,10 @@
 
 var biometricsControllers = angular.module('biometricsControllers', []);
 
+var strip64 = function(data){
+    return data.substr(data.indexOf(';base64,') + ';base64,'.length);
+};
+
 biometricsControllers.controller('FileEnrollCtrl', ['$scope', 'Faces',
     function ($scope, Faces) {
         var data = {};
@@ -16,9 +20,7 @@ biometricsControllers.controller('FileEnrollCtrl', ['$scope', 'Faces',
         };
 
         $scope.enrollFile = function(){
-            var dataStripped = data.substr(data.indexOf(';base64,') + ';base64,'.length);
-
-            $scope.fileEnrollResponse = Faces.post({name: $scope.fileName, image: dataStripped});
+            $scope.fileEnrollResponse = Faces.post({name: $scope.fileName, image: strip64(data)});
             $scope.fileEnrollStatus = true;
             $scope.isDisabled = true;
         };
@@ -53,32 +55,24 @@ biometricsControllers.controller('PictureCtrl', ['$scope',
 biometricsControllers.controller('LiveCaptureCtrl', ['$scope', 'Identify', 'Faces',
     function ($scope, Identify, Faces) {
 
-        $scope.showIdentify = true;
-        $scope.showEnroll = true;
-        var video = {};
-        var data = {};
-
         $scope.identify = function () {
-            $scope.getData();
-            $scope.matches = Identify.post({image: data});
+            $scope.matches = Identify.post({image: $scope.getData()});
         };
 
         $scope.enroll = function () {
-            $scope.getData();
-            $scope.enrollResponse = Faces.post({name: $scope.liveCaptureName, image: data});
+            $scope.enrollResponse = Faces.post({name: $scope.liveCaptureName, image:$scope.getData()});
             $scope.enrollStatus = true;
-
         };
 
         $scope.getData = function () {
-            video = $scope.identifyChannel.video;
+            var video = $scope.identifyChannel.video;
             var canvas = document.createElement('canvas');
             canvas.width = 640;
             canvas.height = 480;
             canvas.getContext('2d').drawImage(video, 0, 0, canvas.width, canvas.height);
 
-            data = canvas.toDataURL('image/jpeg');
+            var data = canvas.toDataURL('image/jpeg');
             $scope.dataURL = data;
-            data = data.substr(data.indexOf(';base64,') + ';base64,'.length);
+            return strip64(data);
         };
     }]);

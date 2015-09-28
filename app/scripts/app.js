@@ -14,24 +14,21 @@ biometricsApp.config(['$routeProvider',
   function($routeProvider) {
     $routeProvider.
       when('/delete', {
-        templateUrl: 'scripts/layouts/delete.html',
-        controller: 'DeleteCtrl'
+        templateUrl: 'scripts/layouts/delete.html'
       }).
       when('/enroll', {
-        templateUrl: 'scripts/layouts/enroll.html',
-        controller: 'FileEnrollCtrl'
+        templateUrl: 'scripts/layouts/enroll.html'
       }).
       when('/picture', {
         templateUrl: 'scripts/layouts/get_picture.html',
         controller: 'PictureCtrl'
       }).
       when('/list', {
-        templateUrl: 'scripts/layouts/list.html',
-        controller: 'ListCtrl'
+        templateUrl: 'scripts/layouts/list.html'
       }).
       when('/livecapture', {
-        templateUrl: 'scripts/layouts/live_capture.html',
-        controller: 'LiveCaptureCtrl'
+        templateUrl: 'scripts/layouts/live_capture.html'/*,
+        controller: 'LiveCaptureCtrl'*/
       }).
       when('/', {
         templateUrl: 'scripts/layouts/main.html'
