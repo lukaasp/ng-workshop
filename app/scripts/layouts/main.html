@@ -1,13 +1,18 @@
 <h2>Biometrics check</h2>
 
 <div class="container-fluid">
-    <div class="row">
-        <div id="tasks" class="col-sm-4">
-            <div class="row" ng-include="'scripts/layouts/enroll.html'"></div>
-            <div class="row topspace" ng-include="'scripts/layouts/list.html'"></div>
-            <div class="row topspace" ng-include="'scripts/layouts/delete.html'"></div>
+    <div>
+        <div class="col-md-4">
+            <div ng-include="'scripts/layouts/enroll.html'"></div>
+
         </div>
-        <div class="col-sm-4" ng-include="'scripts/layouts/get_picture.html'"></div>
-        <div class="col-sm-4" ng-include="'scripts/layouts/live_capture.html'"></div>
+        <div class="col-md-4">
+            <div ng-include="'scripts/layouts/live_capture.html'"></div>
+        </div>
+        <div class="col-md-4">
+            <div ng-include="'scripts/layouts/get_picture.html'"></div>
+            <div class="topspace" ng-include="'scripts/layouts/list.html'"></div>
+            <div class="topspace" ng-include="'scripts/layouts/delete.html'"></div>
+        </div>
     </div>
 </div>

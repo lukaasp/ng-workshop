@@ -3,11 +3,8 @@
     <div class="form-group">
         <label for="picName">Name</label>
         <input id="picName" ng-model="picName" type="text" class="form-control" placeholder="Enter name">
-    </div>
-    <div class="form-group topspace">
         <button ng-click="getPic()" type="submit" class="btn btn-default"><i class="fa fa-picture-o"></i> get picture</button>
     </div>
-
     <div class="form-group">
         <img id="pic" class="img-responsive" ng-src="{{path}}">
     </div>

@@ -73,8 +73,8 @@ biometricsControllers.controller('LiveCaptureCtrl', ['$scope', 'Identify', 'Face
         $scope.getData = function () {
             video = $scope.identifyChannel.video;
             var canvas = document.createElement('canvas');
-            canvas.width = 1024;
-            canvas.height = 720;
+            canvas.width = 640;
+            canvas.height = 480;
             canvas.getContext('2d').drawImage(video, 0, 0, canvas.width, canvas.height);
 
             data = canvas.toDataURL('image/jpeg');
