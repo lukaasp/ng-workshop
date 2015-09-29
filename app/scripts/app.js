@@ -1,14 +1,14 @@
 'use strict';
 
 var biometricsApp = angular.module('biometricsApp', [
-    // TODO: task3: create your own webcam or ng-file-model directives
+    // TODO: task4(homework): create your own webcam or ng-file-model directives
   'webcam',
   'ng-file-model',
   'ngRoute',
   'biometricsControllers',
   'biometricsServices'
 ]);
-
+// TODO: task3: beautify main layout and/ or partial layouts by using css (including twitter bootstrap), font awesome, or any tricks you wish
 biometricsApp.config(['$routeProvider',
   function($routeProvider) {
     $routeProvider.
