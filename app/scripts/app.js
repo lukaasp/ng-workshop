@@ -1,9 +1,10 @@
 'use strict';
 
 var biometricsApp = angular.module('biometricsApp', [
+    // TODO: task3: create your own webcam or ng-file-model directives
   'webcam',
-  'ngRoute',
   'ng-file-model',
+  'ngRoute',
   'biometricsControllers',
   'biometricsServices'
 ]);
@@ -18,8 +19,7 @@ biometricsApp.config(['$routeProvider',
         templateUrl: 'scripts/layouts/enroll.html'
       }).
       when('/picture', {
-        templateUrl: 'scripts/layouts/get_picture.html',
-        controller: 'PictureCtrl'
+        templateUrl: 'scripts/layouts/get_picture.html'
       }).
       when('/list', {
         templateUrl: 'scripts/layouts/list.html'

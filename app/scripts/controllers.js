@@ -13,6 +13,7 @@ biometricsControllers.controller('FileEnrollCtrl', ['$scope', 'Faces',
         $scope.getImage = function(obj){
             $scope.fileEnrollStatus = false;
             $scope.isDisabled = false;
+
             data = obj.imageFile.data;
             $scope.enrollDataURL = data;
         };
@@ -27,6 +28,7 @@ biometricsControllers.controller('FileEnrollCtrl', ['$scope', 'Faces',
 biometricsControllers.controller('ListCtrl', ['$scope', 'Faces',
     function ($scope, Faces) {
         $scope.listFaces = function () {
+            // TODO: warm-up no.1
             $scope.faces = Faces.get();
         }
     }]);
@@ -35,6 +37,7 @@ biometricsControllers.controller('DeleteCtrl', ['$scope', 'User',
     function ($scope, User) {
         $scope.deleteUser = function () {
             User.delete({id: $scope.deleteName}, function (response) {
+                // TODO: warm-up no.1
                 $scope.response = response;
                 $scope.showStatus = true;
             });
@@ -44,6 +47,7 @@ biometricsControllers.controller('DeleteCtrl', ['$scope', 'User',
 biometricsControllers.controller('PictureCtrl', ['$scope',
     function ($scope) {
         $scope.getPic = function () {
+            //TODO: warm-up no.2
             var name = $scope.picName;
 
             $scope.path = '/openbr/faces/' + name + '.jpg';
@@ -58,6 +62,7 @@ biometricsControllers.controller('LiveCaptureCtrl', ['$scope', 'Identify', 'Face
         };
 
         $scope.enroll = function () {
+            // TODO: task1: sort response either here or directly in service
             $scope.enrollResponse = Faces.post({name: $scope.liveCaptureName, image:$scope.getData()});
             $scope.enrollStatus = true;
         };
@@ -73,4 +78,6 @@ biometricsControllers.controller('LiveCaptureCtrl', ['$scope', 'Identify', 'Face
             $scope.dataURL = data;
             return strip64(data);
         };
+
+        // TODO: task2: compare 2 shots from camera - requires modifying controller, services and template
     }]);
