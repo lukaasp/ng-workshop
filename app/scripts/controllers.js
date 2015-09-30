@@ -28,7 +28,7 @@ biometricsControllers.controller('FileEnrollCtrl', ['$scope', 'Faces',
 biometricsControllers.controller('ListCtrl', ['$scope', 'Faces',
     function ($scope, Faces) {
         $scope.listFaces = function () {
-            // TODO: warm-up no.1
+            // TODO: warm-up no.1 - get the list of faces from back-end and assign it to appropriate $scope variable
             $scope.faces = Faces.get();
         }
     }]);
@@ -37,7 +37,7 @@ biometricsControllers.controller('DeleteCtrl', ['$scope', 'User',
     function ($scope, User) {
         $scope.deleteUser = function () {
             User.delete({id: $scope.deleteName}, function (response) {
-                // TODO: warm-up no.1
+                // TODO: warm-up no.1 - item is being deleted - assign response to appropriate $scope variable and show the message in template
                 $scope.response = response;
                 $scope.showStatus = true;
             });
@@ -47,7 +47,7 @@ biometricsControllers.controller('DeleteCtrl', ['$scope', 'User',
 biometricsControllers.controller('PictureCtrl', ['$scope',
     function ($scope) {
         $scope.getPic = function () {
-            //TODO: warm-up no.2
+            //TODO: warm-up no.2 - get the name from text input and use it to assemble path to picture; assign the assembled path to appropriate $scope variable so the picture would be viewed in template
             var name = $scope.picName;
 
             $scope.path = '/openbr/faces/' + name + '.jpg';

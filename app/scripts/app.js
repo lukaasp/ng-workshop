@@ -28,6 +28,9 @@ biometricsApp.config(['$routeProvider',
         templateUrl: 'scripts/layouts/live_capture.html'/*,
         controller: 'LiveCaptureCtrl'*/
       }).
+      when('/docs', {
+        templateUrl: 'scripts/layouts/docs.html'
+      }).
       when('/', {
         templateUrl: 'scripts/layouts/main.html'
       }).
