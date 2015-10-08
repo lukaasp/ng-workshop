@@ -58,11 +58,17 @@ biometricsControllers.controller('LiveCaptureCtrl', ['$scope', 'Identify', 'Face
     function ($scope, Identify, Faces) {
 
         $scope.identify = function () {
-            $scope.matches = Identify.post({image: $scope.getData()});
+          // TODO: task1: sort response either here or directly in service
+
+          var data = Identify.post({image: $scope.getData()}, function(){
+            var sorted = data.sort(function (a, b) {
+              return a.score - b.score;
+            });
+            $scope.matches = sorted.reverse();
+          });
         };
 
         $scope.enroll = function () {
-            // TODO: task1: sort response either here or directly in service
             $scope.enrollResponse = Faces.post({name: $scope.liveCaptureName, image:$scope.getData()});
             $scope.enrollStatus = true;
         };
