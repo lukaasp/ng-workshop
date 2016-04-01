@@ -44,28 +44,30 @@ biometricsControllers.controller('ListCtrl', ['$scope', 'Faces',
         }
     }]);
 
-biometricsControllers.controller('DeleteCtrl', ['$scope', 'User',
-    function ($scope, User) {
-        $scope.deleteUser = function () {
-            User.delete({id: $scope.deleteName}, function (response) {
-                // TODO: Task no.2.1 - item is being deleted - assign response to appropriate $scope variable and show the message in template
-                $scope.response = response;
-                $scope.showStatus = true;
-            });
-        };
-    }]);
-
 biometricsControllers.controller('PictureCtrl', ['$scope',
     function ($scope) {
         $scope.getPic = function () {
-            //TODO: Task no.2.2 - get the name from text input and use it to assemble path to picture; assign the assembled path to appropriate $scope variable so the picture would be viewed in template
+            //TODO: Task no.2.1 - get the name from text input and use it to assemble path to picture; assign the assembled path to appropriate $scope variable so the picture would be viewed in template
             var name = $scope.picName;
 
             $scope.path = '/openbr/faces/' + name + '.jpg';
             
-            //TODO: Task no 2.3 - images loaded are out of bounds, make the img responsive
+            //TODO: Task no 2.2 - images loaded are out of bounds, make the img responsive
             // solution : class="img-responsive"
         }
+    }]);
+
+biometricsControllers.controller('DeleteCtrl', ['$scope', 'User',
+    function ($scope, User) {
+        $scope.deleteUser = function () {
+            User.delete({id: $scope.deleteName}, function (response) {
+                // TODO: Task no.3.1 - item is being deleted - assign response to appropriate $scope variable and show the message in template
+                $scope.response = response;
+                $scope.showStatus = true;
+            });
+
+            // TODO: Task no.3.2 - two-step delete - on 'delete' button click show yes/no buttons, only after clicking 'yes' button proceed with delete
+        };
     }]);
 
 biometricsControllers.controller('LiveCaptureCtrl', ['$scope', 'Identify', 'Faces',
@@ -74,18 +76,18 @@ biometricsControllers.controller('LiveCaptureCtrl', ['$scope', 'Identify', 'Face
         $scope.identify = function () {
 
             $scope.isDisabled = true;
-            $scope.showTaken = true; //task 3.2
+            $scope.showTaken = true; //task 4.2
 
             var data = Identify.post({image: $scope.getData()}, function () {
                 $scope.isDisabled = false;
 
-                // TODO: task 3.1 - sort the response according to score
+                // TODO: task 4.1 - sort the response according to score
                 var sorted = data.sort(function (a, b) {
                     return a.score - b.score;
                 });
                 $scope.matches = sorted.reverse();
 
-                //TODO: task 3.2 - show most similar image
+                //TODO: task 4.2 - show most similar image
 
                 $scope.showTaken = false;
 
