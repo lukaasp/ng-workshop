@@ -5,5 +5,5 @@
         <input id="deleteName" type="text" class="form-control" ng-model="deleteName" placeholder="Enter name">
         <button ng-click="deleteUser()" type="submit" class="btn btn-danger"><i class="fa fa-times"></i> delete</button>
     </div>
-    <label ng-show="showStatus"> Deleted: {{response.deleted}}, Left: <span ng-repeat="user in response.left">{{user.name}}|</span></label>
+    <div ng-show="showStatus"> Deleted: {{response.deleted}}, Left: <label ng-repeat="user in response.left">{{user.name}}|</label></div>
 </form>
