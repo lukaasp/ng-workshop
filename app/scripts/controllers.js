@@ -2,7 +2,7 @@
 
 var biometricsControllers = angular.module('biometricsControllers', []);
 
-var strip64 = function(data){
+var strip64 = function (data) {
     return data.substr(data.indexOf(';base64,') + ';base64,'.length);
 };
 
@@ -10,7 +10,7 @@ biometricsControllers.controller('FileEnrollCtrl', ['$scope', 'Faces',
     function ($scope, Faces) {
         var data = {};
 
-        $scope.getImage = function(obj){
+        $scope.getImage = function (obj) {
             $scope.fileEnrollStatus = false;
             $scope.isDisabled = false;
 
@@ -18,7 +18,7 @@ biometricsControllers.controller('FileEnrollCtrl', ['$scope', 'Faces',
             $scope.enrollDataURL = data;
         };
 
-        $scope.enrollFile = function(){
+        $scope.enrollFile = function () {
             $scope.fileEnrollResponse = Faces.post({name: $scope.fileName, image: strip64(data)});
             $scope.fileEnrollStatus = true;
             $scope.isDisabled = true;
@@ -58,18 +58,20 @@ biometricsControllers.controller('LiveCaptureCtrl', ['$scope', 'Identify', 'Face
     function ($scope, Identify, Faces) {
 
         $scope.identify = function () {
-          // TODO: task1: sort response either here or directly in service
+            // TODO: task1: sort response either here or directly in service
+            $scope.isDisabled = true;
 
-          var data = Identify.post({image: $scope.getData()}, function(){
-            var sorted = data.sort(function (a, b) {
-              return a.score - b.score;
+            var data = Identify.post({image: $scope.getData()}, function () {
+                $scope.isDisabled = false;
+                var sorted = data.sort(function (a, b) {
+                    return a.score - b.score;
+                });
+                $scope.matches = sorted.reverse();
             });
-            $scope.matches = sorted.reverse();
-          });
         };
 
         $scope.enroll = function () {
-            $scope.enrollResponse = Faces.post({name: $scope.liveCaptureName, image:$scope.getData()});
+            $scope.enrollResponse = Faces.post({name: $scope.liveCaptureName, image: $scope.getData()});
             $scope.enrollStatus = true;
         };
 
