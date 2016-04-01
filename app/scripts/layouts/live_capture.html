@@ -20,6 +20,7 @@
         <webcam channel="identifyChannel"></webcam>
     </div>
     <div class="topspace embed-responsive embed-responsive-4by3">
-        <img class="img-responsive" data-ng-src="{{dataURL}}"/>
+        <img ng-show="showTaken" class="img-responsive" data-ng-src="{{dataURL}}"/>
+        <img ng-show="showSimilar" class="img-responsive" ng-src="{{similarPath}}">
     </div>
 </form>
