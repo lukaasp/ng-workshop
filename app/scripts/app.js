@@ -8,7 +8,7 @@ var biometricsApp = angular.module('biometricsApp', [
   'biometricsControllers',
   'biometricsServices'
 ]);
-// TODO: task 6: beautify main layout and/ or partial layouts by using css (including twitter bootstrap), font awesome, or any tricks you wish
+// TODO: task 6: beautify main layout and/ or partial layouts by using css (including twitter bootstrap), font awesome, or any tricks you wish - todo for me - specify (effects etc.)
 biometricsApp.config(['$routeProvider',
   function($routeProvider) {
     $routeProvider.
