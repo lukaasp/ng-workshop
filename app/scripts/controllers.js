@@ -113,5 +113,5 @@ biometricsControllers.controller('LiveCaptureCtrl', ['$scope', 'Identify', 'Face
             return strip64(data);
         };
 
-        // TODO: task2: compare 2 shots from camera - requires modifying controller, services and template
+        // TODO: task 5: compare 2 shots from camera - requires modifying controller, services and template
     }]);
