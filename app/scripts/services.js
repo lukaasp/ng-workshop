@@ -1,25 +1,32 @@
-'use strict';
+(function() {
 
-var biometricsServices = angular.module('biometricsServices', ['ngResource']);
+  'use strict';
 
-biometricsServices.factory('Faces', ['$resource',
-  function($resource){
+  angular
+    .module('biometricsServices', ['ngResource'])
+    .factory('Faces', faces)
+    .factory('Identify', identify)
+    .factory('User', user);
+
+  //////////
+
+  function faces($resource) {
     return $resource('/openbr/faces', {}, {
-      get: {method:'GET',isArray:true},
-      post: {method:'POST'}
+      get: {method: 'GET',isArray: true},
+      post: {method: 'POST'}
     });
-}]);
+  }
 
-biometricsServices.factory('Identify', ['$resource',
-    function($resource){
-        return $resource('/openbr/identify', {}, {
-            post: {method:'POST',isArray:true}
-        });
-}]);
+  function identify($resource) {
+    return $resource('/openbr/identify', {}, {
+      post: {method: 'POST',isArray: true}
+    });
+  }
 
-biometricsServices.factory('User', ['$resource',
-    function($resource){
-        return $resource('/openbr/faces/:id', {}, {
-            delete: {method:'DELETE'}
-        });
-    }]);
+  function user($resource) {
+    return $resource('/openbr/faces/:id', {}, {
+      delete: {method: 'DELETE'}
+    });
+  }
+
+})();
