@@ -6,7 +6,7 @@
     <title>Biometrics workshop</title>
     <meta name="description" content="">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <link rel="stylesheet" href="styles/main.css">
+    <link rel="stylesheet" href="main.css">
     <link rel="stylesheet" href="bower_components/font-awesome/css/font-awesome.min.css">
     <link rel="stylesheet" href="bower_components/bootstrap/dist/css/bootstrap.css">
     <link rel="stylesheet" href="bower_components/font-awesome/css/font-awesome.css">
@@ -24,9 +24,16 @@
 <script src="bower_components/ng-file-model/ng-file-model.js"></script>
 
 <!-- Custom scripts -->
-<script src="scripts/app.js"></script>
-<script src="scripts/controllers.js"></script>
-<script src="scripts/services.js"></script>
+<script src="app.js"></script>
+<script src="user/user.module.js"></script>
+<script src="user/user.factory.js"></script>
+<script src="user/user.controller.js"></script>
+<script src="face-recognition/recognition.module.js"></script>
+<script src="face-recognition/recognition.factory.js"></script>
+<script src="face-recognition/recognition.controller.js"></script>
+<script src="pic-mngmt/pic-mngmt.module.js"></script>
+<script src="pic-mngmt/pic-mngmt.controller.js"></script>
+<script src="utils/utils.js"></script>
 
 <div id="wrapper" class="side-out">
     <nav class="navbar navbar-inverse navbar-fixed-top" role="navigation">
@@ -39,7 +46,7 @@
             </button>
             <a class="navbar-brand" href="#">Digital Workshop</a>
         </div>
-        <div ng-include="'scripts/layouts/topbar.html'" class="collapse navbar-collapse navbar-ex1-collapse"></div>
+        <div ng-include="'layout/topbar.html'" class="collapse navbar-collapse navbar-ex1-collapse"></div>
     </nav>
     <div ng-view class="view-frame"></div>
 </div>

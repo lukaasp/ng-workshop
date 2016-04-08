@@ -8,8 +8,9 @@
         'webcam',
         'ng-file-model',
         'ngRoute',
-        'biometricsControllers',
-        'biometricsServices'
+        'user',
+        'recognition',
+        'pic-mngmt'
       ])
       .config(configuration);
 
@@ -20,26 +21,26 @@
         // (including twitter bootstrap), font awesome, or any tricks you wish - todo for me - specify (effects etc.)
         $routeProvider.
           when('/delete', {
-            templateUrl: 'scripts/layouts/delete.html'
+            templateUrl: 'user/delete.html'
           }).
           when('/enroll', {
-            templateUrl: 'scripts/layouts/enroll.html'
+            templateUrl: 'pic-mngmt/enroll.html'
           }).
           when('/picture', {
-            templateUrl: 'scripts/layouts/get_picture.html'
+            templateUrl: 'pic-mngmt/get-picture.html'
           }).
           when('/list', {
-            templateUrl: 'scripts/layouts/list.html'
+            templateUrl: 'user/user-list.html'
           }).
           when('/livecapture', {
-            templateUrl: 'scripts/layouts/live_capture.html'/*,
+            templateUrl: 'face-recognition/live-capture.html'/*,
             controller: 'LiveCaptureCtrl'*/
           }).
           when('/docs', {
-            templateUrl: 'scripts/layouts/docs.html'
+            templateUrl: 'docs/docs.html'
           }).
           when('/', {
-            templateUrl: 'scripts/layouts/main.html'
+            templateUrl: 'layout/main.html'
           }).
           otherwise({
             redirectTo: '/'
