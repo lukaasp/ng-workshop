@@ -1,78 +1,50 @@
-
-var LIVERELOAD_PORT = 35729;
 var SERVER_PORT = 9001;
-var proxySnippet = require('grunt-connect-proxy/lib/utils').proxyRequest;
-var lrSnippet = require('connect-livereload')({
-    port: LIVERELOAD_PORT
-});
+
+var proxyMiddleware = require('http-proxy-middleware');
 
 module.exports = function(grunt) {
 
-    require('time-grunt')(grunt);
-    require('load-grunt-tasks')(grunt);
-    grunt.loadNpmTasks('grunt-connect-proxy');
+  require('time-grunt')(grunt);
+  require('load-grunt-tasks')(grunt);
+  grunt.loadNpmTasks('grunt-browser-sync');
 
-    grunt.initConfig({
-        jshint: {
-            options:
-            {jshintrc: '.jshintrc' },
-            all: ['Gruntfile.js',
-            'app/scripts/*.js',
-            'app/scripts/**/*.js',
-            'app/scripts/**/**/*.js']
+  grunt.initConfig({
+    jshint: {
+      options:
+      {jshintrc: '.jshintrc'},
+      all: ['Gruntfile.js',
+      'app/scripts/*.js',
+      'app/scripts/**/*.js',
+      'app/scripts/**/**/*.js']
+    },
+    browserSync: {
+      bsFiles: {
+        src: ['app/**/*.*', '!bower_components/**/*.*']
+      },
+      options: {
+        server: {
+          baseDir: './app',
+          middleware: [proxyMiddleware('/openbr', {
+            target: 'http://52.50.192.49:80',
+            changeOrigin: true   // for vhosted sites, changes host header to match to target's host
+          })]
         },
-        watch: {
-            all: {
-                files: ['index.html',
-                    'app/scripts/*.js',
-                    'app/scripts/**/*.js',
-                    'app/scripts/**/**/*.js'],
-                options: {
-                    livereload: true
-                }
-            }
+        port: SERVER_PORT,
+        ghostMode: {
+          clicks: true,
+          forms: true,
+          scroll: true
         },
-        connect: {
-            options: {
-                port: grunt.option('port') || SERVER_PORT,
-                hostname: '0.0.0.0'
-            },
-            proxies: [
-                {
-                    context: ['/openbr'],
-                    host: '52.50.192.49',
-                    port: 80
-                }
-            ],
-            livereload: {
-                options: {
-                    middleware: function (connect) {
-                        return [
-                            proxySnippet,
-                            lrSnippet,
-                            connect.static('app')
-                        ];
-                    }
-                }
-            }
-        },
+        injectChanges: true
+      }
+    },
+    clean: {
+      server: '.tmp'
+    }
+  });
 
-        clean: {
-            server: '.tmp'
-        },
-
-        open: {
-            all: {
-                path: 'http://localhost:<%= connect.options.port%>'
-            }
-        }
-    });
-
-    grunt.registerTask('serve', [
-        'clean:server',
-        'configureProxies',
-        'connect:livereload',
-        'open',
-        'watch'
-    ]);
+  grunt.registerTask('serve', [
+      'clean:server',
+      'browserSync'
+  ]);
 };
