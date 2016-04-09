@@ -10,6 +10,7 @@
     <link rel="stylesheet" href="bower_components/font-awesome/css/font-awesome.min.css">
     <link rel="stylesheet" href="bower_components/bootstrap/dist/css/bootstrap.css">
     <link rel="stylesheet" href="bower_components/font-awesome/css/font-awesome.css">
+    <link rel="stylesheet" href="user/user-detail/user-detail.css">
 </head>
 <body ng-app="biometricsApp" class="ng-scope">
 <!--SCRIPTS-->
@@ -28,6 +29,7 @@
 <script src="user/user.module.js"></script>
 <script src="user/user.factory.js"></script>
 <script src="user/user.controller.js"></script>
+<script src="user/user-detail/user-detail.directive.js"></script>
 <script src="face-recognition/recognition.module.js"></script>
 <script src="face-recognition/recognition.factory.js"></script>
 <script src="face-recognition/recognition.controller.js"></script>
@@ -48,7 +50,7 @@
         </div>
         <div ng-include="'layout/topbar.html'" class="collapse navbar-collapse navbar-ex1-collapse"></div>
     </nav>
-    <div ng-view class="view-frame"></div>
+    <div ng-view class="view-frame container"></div>
 </div>
 
 </body>

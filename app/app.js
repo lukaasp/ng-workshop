@@ -30,7 +30,9 @@
             templateUrl: 'pic-mngmt/get-picture.html'
           }).
           when('/list', {
-            templateUrl: 'user/user-list.html'
+            // templateUrl: 'user/user-list.html'
+            templateUrl: 'user/enrolled-users.html',
+            controller: 'UserCtrl'
           }).
           when('/livecapture', {
             templateUrl: 'face-recognition/live-capture.html'/*,

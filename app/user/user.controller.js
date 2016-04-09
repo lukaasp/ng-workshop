@@ -5,6 +5,23 @@
     .controller('UserCtrl', UserController);
 
   function UserController($scope, User) {
+
+    $scope.faces = [];
+
+    activate();
+
+    function activate() {
+      User.get({},function(data) {
+        $scope.faces = data.filter(function(d) {
+          return d.fileName !== 'undefined.jpg';
+        });
+        // TODO: Task no.1.2 - In 'Life capture' screen 'identify' button is disabled
+        // untill we get the data back from server - do the same for 'list' button in 'List' screen
+        $scope.isDisabled = false;
+
+      });
+    }
+
     $scope.listFaces = function() {
       $scope.isDisabled = true;
 

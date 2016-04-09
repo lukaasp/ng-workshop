@@ -6,7 +6,7 @@
 
   function userFactory($resource) {
       return $resource('/openbr/faces/:id', {id: '@id'}, {
-         get: {method: 'GET',isArray: true},
+         get: {method: 'GET', isArray: true},
          post: {method: 'POST'},
          delete: {method: 'DELETE'}
        });
