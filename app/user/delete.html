@@ -1,13 +1,13 @@
-<form class="form-inline outlined" ng-controller="UserCtrl" ng-init="showButtons = false">
+<form class="form-inline outlined" ng-init="showButtons = false">
     <h6>Delete</h6>
     <div class="form-group">
-        <label for="deleteName">Name</label>
-        <input id="deleteName" type="text" class="form-control" ng-model="deleteName" placeholder="Enter name">
+        <label for="nameToDelete">Name</label>
+        <input id="nameToDelete" type="text" class="form-control" ng-model="nameToDelete" placeholder="Enter name">
         <button ng-show="!showButtons" ng-click="showButtons = true" type="submit" class="btn btn-danger"><i class="fa fa-times"></i> delete</button>
         <span ng-show="showButtons">
-            <button ng-click="deleteUser(); showButtons = false; deleteName = null" type="submit">Yes</button>
+            <button ng-click="deleteUser(nameToDelete); showButtons = false; nameToDelete = null" type="submit">Yes</button>
             <button>No</button>
         </span>
-    </div>
-    <div ng-show="showStatus"> Deleted: {{response.deleted}}, Left: <label ng-repeat="user in response.left">{{user.name}}|</label></div>
+    </div><!-- TODO:ZH What about this? --> 
+    <!-- <div ng-show="showStatus"> Deleted: {{response.deleted}}, Left: <label ng-repeat="user in response.left">{{user.name}}|</label></div> -->
 </form>

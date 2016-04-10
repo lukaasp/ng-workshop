@@ -1,7 +1,11 @@
-<form class="form-inline outlined" ng-controller="UserCtrl">
+<form class="form-inline outlined" >
     <h6>List</h6>
     <div class="form-group">
         <button ng-disabled="isDisabled" ng-click="listFaces()" type="submit" class="btn btn-default"><i class="fa fa-list"></i> list</button>
-        <label ng-repeat="face in faces">{{face.name}}|</label>
+        <!-- <label ng-repeat="face in faces">{{face.name}}|</label> -->
+        <ul class="list-group">
+          <li class="list-group-item animated bounceOut"
+              ng-repeat="face in faces" >{{face.name}}</li>
+        </ul>
     </div>
 </form>

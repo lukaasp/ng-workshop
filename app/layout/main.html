@@ -8,10 +8,10 @@
         <div class="col-md-4">
             <div ng-include="'face-recognition/live-capture.html'"></div>
         </div>
-        <div class="col-md-4">
+        <div class="col-md-4" ng-controller="UserCtrl">
             <div ng-include="'pic-mngmt/get-picture.html'"></div>
-            <div class="topspace" ng-include="'user/user-list.html'"></div>
             <div class="topspace" ng-include="'user/delete.html'"></div>
+            <div class="topspace" ng-include="'user/user-list.html'"></div>
         </div>
     </div>
 </div>

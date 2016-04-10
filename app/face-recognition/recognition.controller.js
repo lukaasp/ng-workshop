@@ -27,10 +27,14 @@
             $scope.similarPath = '/openbr/faces/' + $scope.matches[0].name + '.jpg';
             $scope.showSimilar = true;
           });
+
     };
 
     $scope.enroll = function() {
-          $scope.enrollResponse = User.post({name: $scope.liveCaptureName, image: $scope.getData()});
+          User.post({name: $scope.liveCaptureName, image: $scope.getData()}, function(response) {
+            $scope.enrollResponse = response;
+
+          });
           $scope.enrollStatus = true;
         };
 

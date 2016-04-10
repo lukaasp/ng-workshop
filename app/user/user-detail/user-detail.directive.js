@@ -27,7 +27,7 @@
     }
 
   function UserDetailController() {
-      var vm = this;
-    }
+    var vm = this;
+  }
 
 })();

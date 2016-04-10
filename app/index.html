@@ -10,17 +10,20 @@
     <link rel="stylesheet" href="bower_components/font-awesome/css/font-awesome.min.css">
     <link rel="stylesheet" href="bower_components/bootstrap/dist/css/bootstrap.css">
     <link rel="stylesheet" href="bower_components/font-awesome/css/font-awesome.css">
+    <link rel="stylesheet" href="layout/animate.css">
     <link rel="stylesheet" href="user/user-detail/user-detail.css">
+    <link rel="stylesheet" href="comparison/compare-users.css">
 </head>
 <body ng-app="biometricsApp" class="ng-scope">
 <!--SCRIPTS-->
 
 <!-- Vendor Scripts -->
 <script src="bower_components/angular/angular.js"></script>
-<script src="bower_components/angular-local-storage/dist/angular-local-storage.js"></script>
-<script src="bower_components/angular-route/angular-route.js"></script>
-<script src="bower_components/angular-resource/angular-resource.js"></script>
+<script src="bower_components/angular-animate/angular-animate.js"></script>
+<script src="bower_components/angular-ui-router/release/angular-ui-router.js"></script>
 <script src="bower_components/angular-bootstrap/ui-bootstrap.min.js"></script>
+<script src="bower_components/angular-local-storage/dist/angular-local-storage.js"></script>
+<script src="bower_components/angular-resource/angular-resource.js"></script>
 <script src="bower_components/webcam/dist/webcam.min.js"></script>
 <script src="bower_components/ng-file-model/ng-file-model.js"></script>
 
@@ -33,6 +36,9 @@
 <script src="face-recognition/recognition.module.js"></script>
 <script src="face-recognition/recognition.factory.js"></script>
 <script src="face-recognition/recognition.controller.js"></script>
+<script src="comparison/comparison.module.js"></script>
+<script src="comparison/comparison.factory.js"></script>
+<script src="comparison/comparison.controller.js"></script>
 <script src="pic-mngmt/pic-mngmt.module.js"></script>
 <script src="pic-mngmt/pic-mngmt.controller.js"></script>
 <script src="utils/utils.js"></script>
@@ -50,7 +56,7 @@
         </div>
         <div ng-include="'layout/topbar.html'" class="collapse navbar-collapse navbar-ex1-collapse"></div>
     </nav>
-    <div ng-view class="view-frame container"></div>
+    <div ui-view class="view-frame container"></div>
 </div>
 
 </body>
