@@ -11,7 +11,7 @@
       $scope.isDisabled = true;
       $scope.showTaken = true; //task 4.2
 
-      var data = Identify.post({image: $scope.getData()}, function() {
+      Identify.post({image: getData()}, function(data) {
             $scope.isDisabled = false;
 
             // TODO: task 4.1 - sort the response according to score
@@ -30,11 +30,20 @@
     };
 
     $scope.enroll = function() {
-          $scope.enrollResponse = User.post({name: $scope.liveCaptureName, image: $scope.getData()});
-          $scope.enrollStatus = true;
-        };
+        $scope.enrollStatusOK = false;
+        $scope.enrollStatusError = false;
 
-    $scope.getData = function() {
+        User.post({name: $scope.liveCaptureName, image: getData()},function(data){
+            $scope.enrollResponseOK = data;
+            $scope.enrollStatusOK = true;
+
+        },function(error){
+            $scope.enrollResponseError = error;
+            $scope.enrollStatusError = true;
+        });
+    };
+
+    function getData() {
           var video = $scope.identifyChannel.video;
           var canvas = document.createElement('canvas');
           canvas.width = 640;

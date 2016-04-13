@@ -2,7 +2,7 @@ var SERVER_PORT = 9001;
 
 var proxyMiddleware = require('http-proxy-middleware');
 
-module.exports = function(grunt) {
+module.exports = function(grunt) {grunt 
 
   require('time-grunt')(grunt);
   require('load-grunt-tasks')(grunt);
@@ -25,7 +25,7 @@ module.exports = function(grunt) {
         server: {
           baseDir: './app',
           middleware: [proxyMiddleware('/openbr', {
-            target: 'http://52.50.192.49:80',
+            target: 'http://localhost:8001',
             changeOrigin: true   // for vhosted sites, changes host header to match to target's host
           })]
         },
