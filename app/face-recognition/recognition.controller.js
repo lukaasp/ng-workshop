@@ -53,7 +53,7 @@
           var data = canvas.toDataURL('image/jpeg');
           $scope.dataURL = data;
           return Utils.strip64(data);
-        };
+        }
 
     // TODO: task 5: compare 2 shots from camera - requires modifying controller, services and template
   }
