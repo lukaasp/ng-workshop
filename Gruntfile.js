@@ -2,7 +2,7 @@ var SERVER_PORT = 9001;
 
 var proxyMiddleware = require('http-proxy-middleware');
 
-module.exports = function(grunt) {grunt 
+module.exports = function(grunt) {
 
   require('time-grunt')(grunt);
   require('load-grunt-tasks')(grunt);
