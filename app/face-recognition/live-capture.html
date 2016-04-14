@@ -14,7 +14,8 @@
         <span ng-repeat="match in matches">{{match.name}}:{{match.score}} |</span>
     </div>
     <div class="form-group">
-        <span ng-show="enrollStatus">{{enrollResponse.name}} enrolled ...</span>
+        <span ng-show="enrollStatusOK">{{enrollResponseOK.name}} enrolled ...</span>
+        <span ng-show="enrollStatusError">{{enrollResponseError.data}}</span>
     </div>
     <div class="topspace embed-responsive embed-responsive-4by3">
         <webcam channel="identifyChannel"></webcam>

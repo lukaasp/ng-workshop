@@ -8,6 +8,8 @@
             <button ng-click="deleteUser(nameToDelete); showButtons = false; nameToDelete = null" type="submit">Yes</button>
             <button>No</button>
         </span>
-    </div><!-- TODO:ZH What about this? --> 
     <!-- <div ng-show="showStatus"> Deleted: {{response.deleted}}, Left: <label ng-repeat="user in response.left">{{user.name}}|</label></div> -->
+    </div>
+    <div ng-show="showStatus"> Deleted: {{response.deleted}}, Left: <label ng-repeat="user in response.left">{{user.name}}|</label></div>
+    <div ng-show="showError"> {{errorResponse}}</div>
 </form>

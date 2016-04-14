@@ -25,6 +25,7 @@
         };
         $http.post('/openbr/compare', postData)
              .then(function(result) {
+                console.log('got data', result.data);
                 deferred.resolve(result.data);
               })
              .catch(function(err) {

@@ -11,7 +11,7 @@
       $scope.isDisabled = true;
       $scope.showTaken = true; //task 4.2
 
-      var data = Identify.post({image: $scope.getData()}, function() {
+      Identify.post({image: getData()}, function(data) {
             $scope.isDisabled = false;
 
             // TODO: task 4.1 - sort the response according to score
@@ -31,14 +31,29 @@
     };
 
     $scope.enroll = function() {
-          User.post({name: $scope.liveCaptureName, image: $scope.getData()}, function(response) {
-            $scope.enrollResponse = response;
+      // <<<<<<< HEAD
+      //           User.post({name: $scope.liveCaptureName, image: $scope.getData()}, function(response) {
+      //             $scope.enrollResponse = response;
+      //
+      //           });
+      //           $scope.enrollStatus = true;
+      //         };
+      // =======
+      $scope.enrollStatusOK = false;
+      $scope.enrollStatusError = false;
+      // >>>>>>> tasks
 
-          });
-          $scope.enrollStatus = true;
-        };
+      User.post({name: $scope.liveCaptureName, image: getData()},function(data) {
+        $scope.enrollResponseOK = data;
+        $scope.enrollStatusOK = true;
 
-    $scope.getData = function() {
+      },function(error) {
+        $scope.enrollResponseError = error;
+        $scope.enrollStatusError = true;
+      });
+    };
+
+    function getData() {
           var video = $scope.identifyChannel.video;
           var canvas = document.createElement('canvas');
           canvas.width = 640;
@@ -48,7 +63,7 @@
           var data = canvas.toDataURL('image/jpeg');
           $scope.dataURL = data;
           return Utils.strip64(data);
-        };
+        }
 
     // TODO: task 5: compare 2 shots from camera - requires modifying controller, services and template
   }
