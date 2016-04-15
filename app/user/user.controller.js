@@ -7,15 +7,23 @@
   function UserController($scope, User) {
     // TODO: Task no.1.1 - get the list of faces from back-end and assign it to appropriate $scope variable,
     // make the list load at start
-    $scope.listFaces = listAll();
+
+    $scope.refresh = listAll();
     listAll();
 
     function listAll() {
       $scope.isDisabled = true;
 
-      $scope.faces = User.get({}, function() {
-        // TODO: Task no.1.2 - In 'Life capture' screen 'identify' button is disabled
-        // untill we get the data back from server - do the same for 'list' button in 'List' screen
+      // TODO: Task no.1.2 - In 'Life capture' screen 'identify' button is disabled
+      // untill we get the data back from server - do the same for 'list' button in 'List' screen
+
+      User.syncWithRemote().then(function(faces) {
+        $scope.faces = faces;
+        $scope.isDisabled = false;
+      }, function(error) {
+        console.log('Could not sync with remote server.');
+        console.log(error);
+        $scope.faces = [];
         $scope.isDisabled = false;
       });
     }
@@ -24,24 +32,13 @@
       $scope.showStatus = false;
       $scope.showError = false;
 
-      User.delete({id: nameToDelete}, function(response) {
+      User.deleteUser(nameToDelete).then(function(response) {
         // TODO: Task no.3.1 - item is being deleted - assign response to appropriate $scope variable
         // and show the message in template
         $scope.response = response;
         $scope.showStatus = true;
-        var userToDelete = $scope.faces.filter(function(face) {
-          return face.name === nameToDelete;
-        });
-        userToDelete.forEach(function(face) {
-          var i = $scope.faces.indexOf(face);
-          if (i > -1) {
-            $scope.faces.splice(i, 1);
-          }
-        });
-
-                // TODO: Task no.3.1 - catch error response
+        // TODO: Task no.3.1 - catch error response
       }, function(error) {
-
         $scope.errorResponse = error.data;
         $scope.showError = true;
       });

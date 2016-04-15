@@ -34,11 +34,10 @@
       $scope.enrollStatusOK = false;
       $scope.enrollStatusError = false;
 
-      User.post({name: $scope.liveCaptureName, image: getData()},function(data) {
+      User.addUser($scope.liveCaptureName, getData()).then(function(data) {
         $scope.enrollResponseOK = data;
         $scope.enrollStatusOK = true;
-
-      },function(error) {
+      }, function(error) {
         $scope.enrollResponseError = error;
         $scope.enrollStatusError = true;
       });
