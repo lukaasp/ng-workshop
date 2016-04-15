@@ -5,8 +5,8 @@
       .controller('UserCtrl', UserController);
 
   function UserController($scope, User) {
-      // TODO: Task no.1.1 - get the list of faces from back-end and assign it to appropriate $scope variable,
-     // make the list load at start
+    // TODO: Task no.1.1 - get the list of faces from back-end and assign it to appropriate $scope variable,
+    // make the list load at start
     $scope.listFaces = listAll();
     listAll();
 
@@ -32,15 +32,12 @@
         var userToDelete = $scope.faces.filter(function(face) {
           return face.name === nameToDelete;
         });
-        console.log(userToDelete);
         userToDelete.forEach(function(face) {
-                  var i = $scope.faces.indexOf(face);
-                  console.log('index', i);
-                  if (i > -1) {
-                    $scope.faces.splice(i, 1);
-                  }
-                  console.log($scope.faces.length);
-                });
+          var i = $scope.faces.indexOf(face);
+          if (i > -1) {
+            $scope.faces.splice(i, 1);
+          }
+        });
 
                 // TODO: Task no.3.1 - catch error response
       }, function(error) {
