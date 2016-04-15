@@ -41,5 +41,4 @@
         // solution : class="img-responsive"
       };
     }
-
 })();
