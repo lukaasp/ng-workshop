@@ -31,17 +31,8 @@
     };
 
     $scope.enroll = function() {
-      // <<<<<<< HEAD
-      //           User.post({name: $scope.liveCaptureName, image: $scope.getData()}, function(response) {
-      //             $scope.enrollResponse = response;
-      //
-      //           });
-      //           $scope.enrollStatus = true;
-      //         };
-      // =======
       $scope.enrollStatusOK = false;
       $scope.enrollStatusError = false;
-      // >>>>>>> tasks
 
       User.post({name: $scope.liveCaptureName, image: getData()},function(data) {
         $scope.enrollResponseOK = data;

@@ -6,7 +6,6 @@
       .module('biometricsApp', [
         'ui.router',
         'ngAnimate',
-          // TODO: task 7 (homework): create your own webcam or ng-file-model directives
         'webcam',
         'ng-file-model',
         'user',

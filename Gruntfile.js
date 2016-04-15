@@ -26,6 +26,7 @@ module.exports = function(grunt) {
           baseDir: './app',
           middleware: [proxyMiddleware('/openbr', {
             target: 'http://52.50.192.49',
+            //target: 'http://localhost:8001',
             changeOrigin: true   // for vhosted sites, changes host header to match to target's host
           })]
         },
