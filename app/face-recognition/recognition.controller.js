@@ -37,6 +37,7 @@
       User.addUser($scope.liveCaptureName, getData()).then(function(data) {
         $scope.enrollResponseOK = data;
         $scope.enrollStatusOK = true;
+        $scope.liveCaptureName = '';
       }, function(error) {
         $scope.enrollResponseError = error;
         $scope.enrollStatusError = true;
@@ -54,8 +55,6 @@
           $scope.dataURL = data;
           return Utils.strip64(data);
         }
-
-    // TODO: task 5: compare 2 shots from camera - requires modifying controller, services and template
   }
 
 })();

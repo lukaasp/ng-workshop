@@ -8,7 +8,7 @@
     // TODO: Task no.1.1 - get the list of faces from back-end and assign it to appropriate $scope variable,
     // make the list load at start
 
-    $scope.refresh = listAll();
+    $scope.listAll = listAll();
     listAll();
 
     function listAll() {
@@ -37,7 +37,7 @@
         // and show the message in template
         $scope.response = response;
         $scope.showStatus = true;
-        // TODO: Task no.3.1 - catch error response
+        // TODO: Task no.3.3 - catch error response
       }, function(error) {
         $scope.errorResponse = error.data;
         $scope.showError = true;

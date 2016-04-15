@@ -43,10 +43,9 @@
     function deleteUser(userName) {
       var deferred = $q.defer();
       UserResource.delete({id: userName}, function(response) {
-        // TODO: Task no.3.1 - item is being deleted - assign response to appropriate $scope variable
-        // and show the message in template
-        users.splice(users.indexOf({name: userName, fileName: userName + '.jpg'}), 1);
-        deferred.resolve(userName);
+        // TODO: Task no.3.2 - update list of users on delete
+        var deleteIndex = users.findIndex(function(user) {return user.name === userName;});
+        users.splice(deleteIndex, 1);
       }, function(error) {
         deferred.reject(error);
       });

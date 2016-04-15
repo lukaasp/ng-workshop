@@ -14,6 +14,8 @@
 
     function compare(image1, image2) {
       var deferred = $q.defer();
+
+      //TODO: Task 5.1 - implement this function by using already existing helper methods and promisses
       console.log('comparing', image1, 'and', image2);
       var promise1 = getBase64Image(image1);
       var promise2 = getBase64Image(image2);

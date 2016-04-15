@@ -6,7 +6,7 @@
         <button ng-show="!showButtons" ng-click="showButtons = true" type="submit" class="btn btn-danger"><i class="fa fa-times"></i> delete</button>
         <span ng-show="showButtons">
             <button ng-click="deleteUser(nameToDelete); showButtons = false; nameToDelete = null" type="submit">Yes</button>
-            <button>No</button>
+            <button ng-click="showButtons = false">No</button>
         </span>
     </div>
     <div ng-show="showStatus"> Deleted: {{response}}</label></div>
