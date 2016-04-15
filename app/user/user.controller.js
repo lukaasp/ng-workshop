@@ -5,15 +5,14 @@
       .controller('UserCtrl', UserController);
 
   function UserController($scope, User) {
+      // TODO: Task no.1.1 - get the list of faces from back-end and assign it to appropriate $scope variable,
+     // make the list load at start
+    $scope.listFaces = listAll();
+    listAll();
 
-    $scope.faces = [];
-
-    activate();
-
-    function activate() {
+    function listAll() {
       $scope.isDisabled = true;
 
-      // TODO: Task no.1.1 - get the list of faces from back-end and assign it to appropriate $scope variable
       $scope.faces = User.get({}, function() {
         // TODO: Task no.1.2 - In 'Life capture' screen 'identify' button is disabled
         // untill we get the data back from server - do the same for 'list' button in 'List' screen
@@ -21,22 +20,6 @@
       });
     }
 
-    $scope.listFaces = function() {
-      $scope.isDisabled = true;
-
-      // TODO: Task no.1.1 - get the list of faces from back-end and assign it to appropriate $scope variable
-      $scope.faces = User.get({}, function() {
-        // TODO: Task no.1.2 - In 'Life capture' screen 'identify' button is disabled
-        // untill we get the data back from server - do the same for 'list' button in 'List' screen
-        $scope.isDisabled = false;
-      });
-
-      // TODO: Task no.1.3 currently the list of names is out of bounds
-      // in appropriate template decide which tag to use to fit inside of borders
-
-      // solution - swap 'span' for 'label' in list.html
-
-    };
     $scope.deleteUser = function(nameToDelete) {
       $scope.showStatus = false;
       $scope.showError = false;
