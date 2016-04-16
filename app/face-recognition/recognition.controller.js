@@ -30,6 +30,9 @@
 
     };
 
+      //TODO: task 6 - implement form validation in live-capture.html id="liveCaptureName" - disable enroll button on
+      // validation error
+
     $scope.enroll = function() {
       $scope.enrollStatusOK = false;
       $scope.enrollStatusError = false;
