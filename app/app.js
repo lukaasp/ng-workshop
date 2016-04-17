@@ -23,10 +23,6 @@
         // (including twitter bootstrap), font awesome, or any tricks you wish - todo for me - specify (effects etc.)
         $urlRouterProvider.otherwise('/');
         $stateProvider
-          .state('delete', {
-            url: '/delete',
-            templateUrl: 'user/delete.html'
-          })
           .state('enroll', {
             url: '/enroll',
             templateUrl: 'pic-mngmt/enroll.html'
@@ -35,8 +31,8 @@
             url: '/picture',
             templateUrl: 'pic-mngmt/get-picture.html'
           })
-          .state('list', {
-            url: '/list',
+          .state('compare', {
+            url: '/compare',
             templateUrl: 'comparison/compare-users.html',
             controller: 'ComparisonCtrl'
           })

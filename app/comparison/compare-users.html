@@ -1,28 +1,26 @@
-<div>
+<div class="row">
   <h3>Enrolled Users</h3>
-  <div class="row">
-    <div class="col-md-4 compared-image">
-      <img ng-src="/openbr/faces/{{image1.file}}" alt="Albert Einstein" class="img-responsive">
-    </div>
-    <div class="col-md-4">
-      <p>vs.</p>
-      <button class="btn btn-default" ng-click="compare()">Compare</button>
-      <p>Results: {{lastResult}}</p>
-      <h4>Latest Comparisons</h4>
-      <ul ng-repeat="c in comparisons | limitTo: 3">
-        <li>{{::c.image1}} vs. {{::c.image2}} : {{::c.result}}</li>
-      </ul>
-    </div>
-    <div class="col-md-4 compared-image">
-      <img ng-src="/openbr/faces/{{image2.file}}" alt="Emma Watson" class="img-responsive">
-    </div>
+  <div class="col-md-offset-1 col-md-3 compared-image">
+    <img ng-src="/openbr/faces/{{image1.file}}" alt="Albert Einstein" class="img-responsive">
   </div>
-  <div class="row" ng-controller="UserCtrl">
-    <div class="col-xs-6 col-sm-3 col-md-2" ng-repeat="face in faces">
-      <user-detail user-name="{{face.name}}"
-                   user-pic="{{face.fileName}}"
-                   ng-click="setImageForComparison(face.name, face.fileName)">
-      </user-detail>
-    </div>
+  <div class="col-md-4 text-center" style="margin-top: 30px;">
+    <h3>vs.</h3>
+    <button class="btn btn-primary" ng-click="compare()">Compare</button>
+    <h3>Result: {{lastResult}}</h3>
+    <h4>Latest Comparisons</h4>
+    <ul ng-repeat="c in comparisons | limitTo: 3">
+      <li>{{::c.image1}} vs. {{::c.image2}} : {{::c.result}}</li>
+    </ul>
+  </div>
+  <div class="col-md-4 compared-image">
+    <img style="border: 1px solid black;" ng-src="/openbr/faces/{{image2.file}}" alt="Emma Watson" class="img-responsive">
+  </div>
+</div>
+<div class="row" ng-controller="UserCtrl">
+  <div class="col-xs-6 col-sm-3 col-md-2" ng-repeat="face in faces">
+    <user-detail user-name="{{face.name}}"
+                 user-pic="{{face.fileName}}"
+                 ng-click="setImageForComparison(face.name, face.fileName)">
+    </user-detail>
   </div>
 </div>
