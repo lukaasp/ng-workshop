@@ -39,6 +39,8 @@
         $scope.showStatus = true;
         // TODO: Task no.3.3 - catch error response
       }, function(error) {
+        // TODO: Task no 7 - use toastr to add some funny error message
+        toastr.warning('','',{closeButton:true,closeHtml:'<img src="/pics/no.jpg" height="200" width="200">'});
         $scope.errorResponse = error.data;
         $scope.showError = true;
       });
