@@ -1,6 +1,6 @@
 <div class="row">
   <h3>Enrolled Users</h3>
-  <div class="col-md-offset-1 col-md-3 compared-image">
+  <div class="col-md-4 compared-image">
     <img ng-src="/openbr/faces/{{image1.file}}" alt="Albert Einstein" class="img-responsive">
   </div>
   <div class="col-md-4 text-center" style="margin-top: 30px;">
@@ -12,8 +12,8 @@
       <li>{{::c.image1}} vs. {{::c.image2}} : {{::c.result}}</li>
     </ul>
   </div>
-  <div class="col-md-4 compared-image">
-    <img style="border: 1px solid black;" ng-src="/openbr/faces/{{image2.file}}" alt="Emma Watson" class="img-responsive">
+  <div class="col-xs-6 col-md-4 compared-image">
+    <img style="border: 1px solid black;" ng-src="/openbr/faces/{{image2.file}}" alt="Emma Watson" class="img-responsive center-block">
   </div>
 </div>
 <div class="row" ng-controller="UserCtrl">
