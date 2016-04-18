@@ -58,7 +58,7 @@
         canvas.height = 240;
         canvas.width = 360;
         ctx.drawImage(this, 0, 0, canvas.width, canvas.height);
-        dataURL = canvas.toDataURL(outputFormat);
+        dataURL = canvas.toDataURL('image/jpeg');
         callback(Utils.strip64(dataURL));
         canvas = null;
       };
