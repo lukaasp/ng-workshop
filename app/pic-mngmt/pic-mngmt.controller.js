@@ -20,10 +20,10 @@
       };
 
       $scope.enrollFile = function() {
-        $scope.fileEnrollResponse = User.post({
-          name: $scope.fileName,
-          image: Utils.strip64(data)
-        });
+        $scope.fileEnrollResponse = User.addUser(
+          $scope.fileName,
+          Utils.strip64(data)
+        );
         $scope.fileEnrollStatus = true;
         $scope.isDisabled = true;
       };
