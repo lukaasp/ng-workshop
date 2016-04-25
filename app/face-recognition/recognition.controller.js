@@ -14,18 +14,20 @@
       Identify.post({image: getData()}, function(data) {
             $scope.isDisabled = false;
 
-            // TODO: task 4.1 - sort the response according to score
-            var sorted = data.sort(function(a, b) {
+            $scope.matches = data;
+
+          // TODO: task 4.1 - sort the response according to score
+           /* var sorted = data.sort(function(a, b) {
               return a.score - b.score;
             });
-            $scope.matches = sorted.reverse();
+            $scope.matches = sorted.reverse();*/
 
             //TODO: task 4.2 - show most similar image
 
-            $scope.showTaken = false;
+            /*$scope.showTaken = false;
 
             $scope.similarPath = '/openbr/faces/' + $scope.matches[0].name + '.jpg';
-            $scope.showSimilar = true;
+            $scope.showSimilar = true;*/
           });
 
     };

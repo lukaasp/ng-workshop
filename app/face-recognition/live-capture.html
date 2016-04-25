@@ -4,11 +4,11 @@
     <div class="form-group">
         <label for="liveCaptureName">Name</label>
         <input id="liveCaptureName" name="liveEnrollName" ng-model="liveCaptureName" type="text" class="form-control"
-               placeholder="Enter name" ><!--required-->
+               placeholder="Enter name" ><!--required task5 -->
         <button type="submit" ng-disabled="isDisabled" class="btn btn-default" ng-click="identify()"><i class="fa fa-male"></i> identify</button>
-        <button type="submit" class="btn btn-success" ng-click="enroll()"><i class="fa fa-floppy-o"></i><!--ng-disabled="liveEnrollForm.liveEnrollName.$error.required"-->
+        <button type="submit" class="btn btn-success" ng-click="enroll()"><i class="fa fa-floppy-o"></i><!--ng-disabled="liveEnrollForm.liveEnrollName.$error.required" task5-->
             enroll
-        </button><!--<span ng-show="liveEnrollForm.liveEnrollName.$error.required"> Empty name not allowed..</span>-->
+        </button><!--<span ng-show="liveEnrollForm.liveEnrollName.$error.required"> Empty name not allowed..</span> task5-->
     </div>
     <div class="form-group">
         <span ng-repeat="match in matches">{{match.name}}:{{match.score}} |</span>
@@ -22,6 +22,6 @@
     </div>
     <div class="topspace embed-responsive embed-responsive-4by3">
         <img ng-show="showTaken" class="img-responsive" data-ng-src="{{dataURL}}"/>
-        <img ng-show="showSimilar" class="img-responsive" ng-src="{{similarPath}}">
+        <!--<img ng-show="showSimilar" class="img-responsive" ng-src="{{similarPath}}"> task 4-->
     </div>
 </form>
