@@ -44,8 +44,8 @@
       var deferred = $q.defer();
       UserResource.delete({id: userName}, function(response) {
         // TODO: Task no.3.2 - update list of users on delete
-        var deleteIndex = users.findIndex(function(user) {return user.name === userName;});
-        users.splice(deleteIndex, 1);
+        /*var deleteIndex = users.findIndex(function(user) {return user.name === userName;});
+        users.splice(deleteIndex, 1);*/
       }, function(error) {
         deferred.reject(error);
       });

@@ -32,17 +32,16 @@
       $scope.showError = false;
 
       User.deleteUser(nameToDelete).then(function(response) {
-        // TODO: Task no.3.1 - item is being deleted - assign response to appropriate $scope variable
-        // and show the message in template
-        $scope.response = response;
-        $scope.showStatus = true;
+        // TODO: Task no.3.1 - item is being deleted - assign response to appropriate $scope variable and show the message in template
+        /*$scope.response = response;
+        $scope.showStatus = true;*/
         // TODO: Task no.3.3 - catch error response
-      }, function(error) {
+      }/*, function(error) {
         // TODO: Task no 3.4 - use toastr to add some funny error message
         toastr.warning('','',{closeButton:true,closeHtml:'<img src="/pics/no.jpg" height="200" width="200">'});
         $scope.errorResponse = error.data;
         $scope.showError = true;
-      });
+      }*/);
 
       // TODO: Task no.3.5 - two-step delete - on 'delete' button click show yes/no buttons,
       // only after clicking 'yes' button proceed with delete
