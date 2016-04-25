@@ -28,7 +28,7 @@
 
   function PictureController($scope) {
       $scope.getPic = function() {
-        //TODO: Task no.2.1 - get the name from text input and use it to assemble path to picture;
+        //TODO: Task no.2.1 - get the name from text input and use it to assemble path to picture
         // assign the assembled path to appropriate $scope variable so the picture would be viewed in template
         var name = $scope.picName;
 

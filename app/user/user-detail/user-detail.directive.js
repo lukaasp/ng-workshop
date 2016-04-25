@@ -7,6 +7,7 @@
     .directive('userDetail', userDetail);
 
   function userDetail() {
+      // TODO: task no 7 - implement user-detail directive
       var directive = {
         bindToController: true,
         scope: {

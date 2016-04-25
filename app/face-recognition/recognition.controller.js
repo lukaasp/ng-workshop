@@ -30,7 +30,7 @@
 
     };
 
-      //TODO: task 6 - implement form validation in live-capture.html id="liveCaptureName" - disable enroll button on
+      //TODO: task 5 - implement form validation in live-capture.html id="liveCaptureName" - disable enroll button on
       // validation error
 
     $scope.enroll = function() {

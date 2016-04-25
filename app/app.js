@@ -19,8 +19,6 @@
   //////////
 
   function configuration($stateProvider, $urlRouterProvider) {
-        // TODO: task 6: beautify main layout and/ or partial layouts by using css
-        // (including twitter bootstrap), font awesome, or any tricks you wish - todo for me - specify (effects etc.)
         $urlRouterProvider.otherwise('/');
         $stateProvider
           .state('enroll', {

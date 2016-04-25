@@ -14,8 +14,7 @@
     function listAll() {
       $scope.isDisabled = true;
 
-      // TODO: Task no.1.2 - In 'Life capture' screen 'identify' button is disabled
-      // untill we get the data back from server - do the same for 'list' button in 'List' screen
+      // TODO: Task no.1.2 - disable 'List' button until we get data back from server
 
       User.syncWithRemote().then(function(faces) {
         $scope.faces = faces;
