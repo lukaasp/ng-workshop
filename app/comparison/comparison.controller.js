@@ -19,7 +19,7 @@
 
       $scope.compare = function() {
           //TODO: Task no 6.2 Use comparison factory to compare 2 pictures and view the results.
-        Comparison
+        /*Comparison
           .compare('/openbr/faces/' + $scope.image1.file, '/openbr/faces/' + $scope.image2.file)
           .then(function(result) {
             $scope.lastResult = result;
@@ -31,7 +31,7 @@
           })
           .catch(function(err) {
             console.log('got error', err);
-          });
+          });*/
       };
     }
 })();

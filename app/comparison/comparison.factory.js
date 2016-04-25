@@ -17,7 +17,7 @@
 
       //TODO: Task 6.1 - implement this function by using already existing helper methods and promises
       console.log('comparing', image1, 'and', image2);
-      var promise1 = getBase64Image(image1);
+      /*var promise1 = getBase64Image(image1);
       var promise2 = getBase64Image(image2);
 
       $q.all([promise1, promise2]).then(function(resolved) {
@@ -37,7 +37,7 @@
       .catch(function(err) {
         deferred.reject('Nay :(');
       });
-      return deferred.promise;
+      return deferred.promise;*/
     }
 
     function getBase64Image(image) {
