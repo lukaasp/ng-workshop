@@ -8,7 +8,7 @@
 
   function userDetail() {
       // TODO: task no 7 - implement user-detail directive
-      var directive = {
+      /*var directive = {
         bindToController: true,
         scope: {
           userName: '@', //TODO:ZH
@@ -24,7 +24,7 @@
       function link(scope, element, attrs) {
       }
 
-      return directive;
+      return directive;*/
     }
 
   function UserDetailController() {
