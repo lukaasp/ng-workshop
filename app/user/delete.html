@@ -2,14 +2,8 @@
     <h6>Delete</h6>
     <div class="form-group">
         <label for="nameToDelete">Name</label>
-        <input id="nameToDelete" type="text" class="form-control" ng-model="nameToDelete" placeholder="Enter name">
-        <button ng-click="deleteUser(nameToDelete)" type="submit" class="btn btn-danger"><i class="fa fa-times"></i> delete</button>
-        <!--<button ng-show="!showButtons" ng-click="showButtons = true" type="submit" class="btn btn-danger"><i class="fa fa-times"></i> delete</button>
-        <span ng-show="showButtons">
-            <button ng-click="deleteUser(nameToDelete); showButtons = false; nameToDelete = null" type="submit">Yes</button>
-            <button ng-click="showButtons = false">No</button>
-        </span>-->
+        <input id="nameToDelete" type="text" class="form-control" placeholder="Enter name">
+        <button type="submit" class="btn btn-danger"><i class="fa fa-times"></i> delete</button>
     </div>
-    <div ng-show="showStatus"> Deleted: {{response}}</div>
-    <div ng-show="showError"> {{errorResponse}}</div>
+    <div><!-- TODO: Task 6.3 Display info about deletion process --></div>
 </form>

@@ -1,10 +1,12 @@
 <form class="form-inline outlined" >
     <h6>List</h6>
     <div class="form-group">
-        <button ng-disabled="isDisabled" ng-click="listAll()" type="submit" class="btn btn-default"><i class="fa fa-list"></i>List</button>
+        <!-- TODO: Task 1.2 Disable button while data are being fetched -->
+        <button ng-click="listAll()" type="submit" class="btn btn-default"><i class="fa fa-list"></i>List</button>
         <ul class="list-group">
-          <li class="list-group-item animated bounceOut"
-              ng-repeat="face in faces" >{{face.name}}</li>
+          <!-- TODO: Task 1.1 List all users
+               HINT: use ng-repeat directive (http://www.w3schools.com/angular/ng_ng-repeat.asp) -->
+          <li class="list-group-item"></li>
         </ul>
     </div>
 </form>
