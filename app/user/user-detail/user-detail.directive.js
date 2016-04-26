@@ -7,25 +7,22 @@
     .directive('userDetail', userDetail);
 
   function userDetail() {
-      // TODO: task no 7 - implement user-detail directive
-      /*var directive = {
+    // SOLUTION: Task 4.1
+
+    var directive = {
         bindToController: true,
         scope: {
-          userName: '@', //TODO:ZH
+          userName: '@',
           userPic: '@'
         },
         controller: UserDetailController,
         controllerAs: 'userDetailVm',
-        link: link,
         restrict: 'E',
         templateUrl: 'user/user-detail/user-detail.template.html'
       };
 
-      function link(scope, element, attrs) {
-      }
-
-      return directive;*/
-    }
+    return directive;
+  }
 
   function UserDetailController() {
     var vm = this;
