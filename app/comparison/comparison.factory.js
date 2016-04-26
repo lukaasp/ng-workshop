@@ -12,12 +12,13 @@
       compare: compare
     };
 
+    // returns promise, that is either
+    // resolved sucessfully to calculated value of resemblance between two images
+    // or rejected with error message
     function compare(image1, image2) {
       var deferred = $q.defer();
 
-      //TODO: Task 6.1 - implement this function by using already existing helper methods and promises
-      console.log('comparing', image1, 'and', image2);
-      /*var promise1 = getBase64Image(image1);
+      var promise1 = getBase64Image(image1);
       var promise2 = getBase64Image(image2);
 
       $q.all([promise1, promise2]).then(function(resolved) {
@@ -27,7 +28,6 @@
         };
         $http.post('/openbr/compare', postData)
              .then(function(result) {
-                console.log('got data', result.data);
                 deferred.resolve(result.data);
               })
              .catch(function(err) {
@@ -37,7 +37,7 @@
       .catch(function(err) {
         deferred.reject('Nay :(');
       });
-      return deferred.promise;*/
+      return deferred.promise;
     }
 
     function getBase64Image(image) {
