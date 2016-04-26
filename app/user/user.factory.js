@@ -4,7 +4,7 @@
     .module('user')
     .factory('User', userFactory);
 
-  function userFactory($resource, $http) {
+  function userFactory($http) {
     var users = [];
 
     return {
