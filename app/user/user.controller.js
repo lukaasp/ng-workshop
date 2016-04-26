@@ -5,10 +5,9 @@
       .controller('UserCtrl', UserController);
 
   function UserController($scope, User) {
-    // TODO: Task no.1.1 - get the list of faces from back-end and assign it to appropriate $scope variable,
-    // make the list load at start
+    // TODO: Task no.1.1 - get the list of faces from back-end and assign it to appropriate $scope variable, make the list load at start
 
-    $scope.listAll = listAll();
+    /*$scope.listAll = listAll();
     listAll();
 
     function listAll() {
@@ -25,7 +24,7 @@
         $scope.faces = [];
         $scope.isDisabled = false;
       });
-    }
+    }*/
 
     $scope.deleteUser = function(nameToDelete) {
       $scope.showStatus = false;
