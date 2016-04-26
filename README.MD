@@ -1,4 +1,4 @@
-# AOWP Angular  workshop frontend
+# Angular  workshop frontend
 
 ## Need to install
 
