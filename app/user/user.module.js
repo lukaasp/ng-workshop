@@ -2,6 +2,6 @@
   'use strict';
 
   angular
-    .module('user', ['ngResource', 'comparison']);
+    .module('user', ['comparison']);
 
 })();

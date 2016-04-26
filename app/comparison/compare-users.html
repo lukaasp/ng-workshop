@@ -4,13 +4,15 @@
     <img ng-src="/openbr/faces/{{image1.file}}" alt="Albert Einstein" class="img-responsive">
   </div>
   <div class="col-md-4 text-center" style="margin-top: 30px;">
-    <h3>vs.</h3>
-    <button class="btn btn-primary" ng-click="compare()">Compare</button>
+    <h3>{{image1.name}} vs. {{image2.name}}</h3>
+    <button ng-disabled="isDisabled" ng-click="compare()" class="btn btn-primary">Compare</button>
+    <!-- Solution: Task 5.1 -->
     <h3>Result: {{lastResult}}</h3>
     <h4>Latest Comparisons</h4>
-    <ul ng-repeat="c in comparisons | limitTo: 3">
-      <li>{{::c.image1}} vs. {{::c.image2}} : {{::c.result}}</li>
-    </ul>
+    <!-- SOLUTION: Task 5.3 -->
+     <ul>
+       <li ng-repeat="c in comparisons| limitTo: 5">{{c.image1}} vs. {{c.image2}}: {{c.result}}</li>
+     </ul>
   </div>
   <div class="col-xs-6 col-md-4 compared-image">
     <img style="border: 1px solid black;" ng-src="/openbr/faces/{{image2.file}}" alt="Emma Watson" class="img-responsive center-block">
@@ -18,8 +20,8 @@
 </div>
 <div class="row" ng-controller="UserCtrl">
   <div class="col-xs-6 col-sm-3 col-md-2" ng-repeat="face in faces">
-    <user-detail user-name="{{face.name}}"
-                 user-pic="{{face.fileName}}"
+    <!-- SOLUTION: Task 5.2 -->
+    <user-detail user-pic="{{face.fileName}}" user-name="{{face.name}}"
                  ng-click="setImageForComparison(face.name, face.fileName)">
     </user-detail>
   </div>

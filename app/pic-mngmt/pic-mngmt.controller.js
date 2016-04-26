@@ -10,31 +10,35 @@
   //////////
 
   function FileEnrollController($scope, User, Utils) {
-      var data = {};
-      $scope.getImage = function(obj) {
-        $scope.fileEnrollStatus = false;
-        $scope.isDisabled = false;
+    var data = {};
+    $scope.getImage = function(obj) {
+      $scope.fileEnrollStatus = false;
+      $scope.isDisabled = false;
 
-        data = obj.imageFile.data;
-        $scope.enrollDataURL = data;
-      };
+      data = obj.imageFile.data;
+      $scope.enrollDataURL = data;
+    };
 
-      $scope.enrollFile = function() {
-        $scope.fileEnrollResponse = User.addUser($scope.fileName, Utils.strip64(data));
-        $scope.fileEnrollStatus = true;
-        $scope.isDisabled = true;
-      };
-    }
+    $scope.enrollFile = function() {
+      $scope.isDisabled = true;
+      User.add($scope.fileName, Utils.strip64(data))
+          .then(function(result) {
+            $scope.fileEnrollStatus = true;
+            $scope.fileEnrollResponse = result.data;
+            $scope.isDisabled = false;
+          }, function(error) {
+            console.log('Could not enrol user', $scope.fileName);
+            $scope.isDisabled = false;
+          });
+    };
+  }
 
   function PictureController($scope) {
-      $scope.getPic = function() {
-        //TODO: Task no.2.1 - get the name from text input and use it to assemble path to picture
-        // assign the assembled path to appropriate $scope variable so the picture would be viewed in template
-        /*var name = $scope.picName;
-
-        $scope.path = '/openbr/faces/' + name + '.jpg';*/
-
-        //TODO: Task no 2.2 - images loaded are out of bounds, make the img responsive
-      };
-    }
+    $scope.picName = null;
+    $scope.picPath = null;
+    $scope.getPic = function() {
+      // SOLUTION: Task 2.1
+      $scope.picPath = '/openbr/faces/' + $scope.picName + '.jpg';
+    };
+  }
 })();
