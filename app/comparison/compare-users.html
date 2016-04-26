@@ -4,12 +4,15 @@
     <img ng-src="/openbr/faces/{{image1.file}}" alt="Albert Einstein" class="img-responsive">
   </div>
   <div class="col-md-4 text-center" style="margin-top: 30px;">
-    <h3>vs.</h3>
-    <button class="btn btn-primary" ng-click="compare()">Compare</button>
-    <h3>Result: {{lastResult}}</h3>
+    <h3>{{image1.name}} vs. {{image2.name}}</h3>
+    <button class="btn btn-primary">Compare</button>
+    <!-- TODO: 5.1 Compare two users - display comparison result -->
+    <h3>Result: </h3>
     <h4>Latest Comparisons</h4>
-    <ul ng-repeat="c in comparisons | limitTo: 3">
-      <li>{{::c.image1}} vs. {{::c.image2}} : {{::c.result}}</li>
+    <!-- TODO: 5.3 List last 5 comparisons and their result
+         HINT: use ng-repeat and limitTo filter-->
+    <ul>
+      <li></li>
     </ul>
   </div>
   <div class="col-xs-6 col-md-4 compared-image">
@@ -18,9 +21,9 @@
 </div>
 <div class="row" ng-controller="UserCtrl">
   <div class="col-xs-6 col-sm-3 col-md-2" ng-repeat="face in faces">
-    <user-detail user-name="{{face.name}}"
-                 user-pic="{{face.fileName}}"
-                 ng-click="setImageForComparison(face.name, face.fileName)">
-    </user-detail>
+    <!-- SOLUTION: Task 4.2 -->
+    <!-- TODO: Task 5.2 - Select user to compare
+         HINT: use ng-click -->
+    {{face.name}}
   </div>
 </div>
