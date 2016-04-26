@@ -21,22 +21,10 @@
   function configuration($stateProvider, $urlRouterProvider) {
         $urlRouterProvider.otherwise('/');
         $stateProvider
-          .state('enroll', {
-            url: '/enroll',
-            templateUrl: 'pic-mngmt/enroll.html'
-          })
-          .state('picture', {
-            url: '/picture',
-            templateUrl: 'pic-mngmt/get-picture.html'
-          })
           .state('compare', {
             url: '/compare',
             templateUrl: 'comparison/compare-users.html',
             controller: 'ComparisonCtrl'
-          })
-          .state('livecapture', {
-            url: '/livecapture',
-            templateUrl: 'face-recognition/live-capture.html'
           })
           .state('docs', {
             url: '/docs',
