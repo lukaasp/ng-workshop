@@ -21,9 +21,9 @@
 </div>
 <div class="row" ng-controller="UserCtrl">
   <div class="col-xs-6 col-sm-3 col-md-2" ng-repeat="face in faces">
-    <!-- SOLUTION: Task 4.2 -->
+    <!-- TODO: Task 4.2 include custom user-datail directive -->
     <!-- TODO: Task 5.2 - Select user to compare
          HINT: use ng-click -->
-    <user-detail user-pic="{{face.fileName}}" user-name="{{face.name}}"></user-detail>
+    {{face.name}}
   </div>
 </div>
