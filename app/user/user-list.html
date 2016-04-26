@@ -1,10 +1,13 @@
+<!-- TODO: Bonus Task 3: Filter registered users
+     HINT: Use ng-model and `filter` filter (https://docs.angularjs.org/api/ng/filter) -->
+<!-- TODO: Bonus Task 4: Animate items entering list
+     HINT: use ng-animate (https://docs.angularjs.org/api/ngAnimate#css-based-animations) -->
 <form class="form-inline outlined" >
     <h6>List</h6>
     <div class="form-group">
         <button ng-disabled="isDisabled" ng-click="listAll()" type="submit" class="btn btn-default"><i class="fa fa-list"></i>List</button>
         <ul class="list-group">
-          <li class="list-group-item animated bounceOut"
-              ng-repeat="face in faces" >{{face.name}}</li>
+          <li class="list-group-item" ng-repeat="face in faces">{{face.name}}</li>
         </ul>
     </div>
 </form>

@@ -5,45 +5,39 @@
       .controller('UserCtrl', UserController);
 
   function UserController($scope, User) {
-    // TODO: Task no.1.1 - get the list of faces from back-end and assign it to appropriate $scope variable, make the list load at start
-
-    /*$scope.listAll = listAll();
+    $scope.faces = [];
+    $scope.showButtons = null;
+    $scope.deleteUser = deleteUser;
+    $scope.listAll = listAll;
     listAll();
+
+    $scope.isDisabled = null;
 
     function listAll() {
       $scope.isDisabled = true;
-
-      // TODO: Task no.1.2 - disable 'List' button until we get data back from server
-
-      User.syncWithRemote().then(function(faces) {
-        $scope.faces = faces;
+      // TODO: Bonus Task 5: Use Toastr to display success/error message
+      // HINT: https://github.com/CodeSeven/toastr#3-easy-steps
+      User.get().then(function(result) {
+        $scope.faces = result.data;
         $scope.isDisabled = false;
       }, function(error) {
-        console.log('Could not sync with remote server.');
-        console.log(error);
-        $scope.faces = [];
+        console.log('Could not fetch users.', error);
         $scope.isDisabled = false;
       });
-    }*/
+    }
 
-    $scope.deleteUser = function(nameToDelete) {
-      $scope.showStatus = false;
-      $scope.showError = false;
-
-      User.deleteUser(nameToDelete).then(function(response) {
-        // TODO: Task no.3.1 - item is being deleted - assign response to appropriate $scope variable and show the message in template
-        /*$scope.response = response;
-        $scope.showStatus = true;*/
-        // TODO: Task no.3.3 - catch error response
-      }/*, function(error) {
-        // TODO: Task no 3.4 - use toastr to add some funny error message
-        toastr.warning('','',{closeButton:true,closeHtml:'<img src="/pics/no.jpg" height="200" width="200">'});
-        $scope.errorResponse = error.data;
-        $scope.showError = true;
-      }*/);
-
-      // TODO: Task no.3.5 - two-step delete - on 'delete' button click show yes/no buttons,
-      // only after clicking 'yes' button proceed with delete
-    };
+    // SOLUTION: Task 6.1
+    function deleteUser(removedUser) {
+      // TODO: Bonus Task 5: Use Toastr to display success/error message
+      // HINT: https://github.com/CodeSeven/toastr#3-easy-steps
+      // SOLUTION: Task 6.2, 6.3
+      User.delete(removedUser)
+          .then(function(result) {
+            $scope.userToDelete = null;
+            $scope.deleteResponse = removedUser + ' removed';
+          }, function(error) {
+            $scope.deleteResponse = 'user ' + removedUser + ' could not be removed';
+          });
+    }
   }
 })();

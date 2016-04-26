@@ -4,59 +4,43 @@
     .module('user')
     .factory('User', userFactory);
 
-  function userFactory($resource, $q) {
+  function userFactory($http) {
     var users = [];
 
-    var UserResource =  $resource('/openbr/faces/:id', {id: '@id'}, {
-      get: {method: 'GET', isArray: true},
-      post: {method: 'POST'},
-      delete: {method: 'DELETE'}
-    });
-
-    function listUsers() {
-      return users;
-    }
-
-    function syncWithRemote() {
-      var deferred = $q.defer();
-      UserResource.get({}, function(result) {
-        users = result;
-        deferred.resolve(result);
-      }, function(error) {
-        users = [];
-        deferred.reject([]);
-      });
-      return deferred.promise;
-    }
-
-    function addUser(userName, userImage) {
-      var deferred = $q.defer();
-      UserResource.post({name: userName, image: userImage}, function(enrolledName) {
-        users.unshift({name: userName, fileName: enrolledName + '.jpg'});
-        deferred.resolve(enrolledName);
-      }, function(error) {
-        deferred.reject(error);
-      });
-      return deferred.promise;
-    }
-
-    function deleteUser(userName) {
-      var deferred = $q.defer();
-      UserResource.delete({id: userName}, function(response) {
-        // TODO: Task no.3.2 - update list of users on delete
-        /*var deleteIndex = users.findIndex(function(user) {return user.name === userName;});
-        users.splice(deleteIndex, 1);*/
-      }, function(error) {
-        deferred.reject(error);
-      });
-      return deferred.promise;
-    }
-
     return {
-      listUsers: listUsers,
-      syncWithRemote: syncWithRemote,
-      addUser: addUser,
-      deleteUser: deleteUser
+      get: getUsers,
+      add: addUser,
+      delete: deleteUser
     };
+
+    // Example of successful response:
+    // [{name:'thename', fileName: 'filename'}, {name:'thename', fileName: 'filename'}, ...]
+    function getUsers() {
+      return $http.get('/openbr/faces');
+    }
+
+    // TODO: Bonus Task 1: Update list of users on every successful enrollment
+    // HINT: don't send directly $http promise,
+    //       take care of it inside this function
+    //       update users
+    //       and then use $q to delegate promise further
+    //       https://docs.angularjs.org/api/ng/service/$q
+    function addUser(userName, userImage) {
+      return $http.post('/openbr/faces', {
+        name: userName,
+        image: userImage
+      });
+    }
+
+    // TODO: Bonus Task 2: Update list of users on every successful removal
+    // HINT: don't send directly $http promise,
+    //       take care of it inside this function
+    //       update users
+    //       and then use $q to delegate promise further
+    //       https://docs.angularjs.org/api/ng/service/$q
+    function deleteUser(userName) {
+      return $http.delete('/openbr/faces/' + userName);
+    }
+
   }
 })();
