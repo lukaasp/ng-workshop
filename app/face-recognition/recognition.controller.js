@@ -5,61 +5,55 @@
     .controller('LiveCaptureCtrl', LiveCaptureController);
 
   function LiveCaptureController($scope, Identify, User, Utils) {
+    // Useful for tasks 3.1 - 3.3
+    $scope.liveCaptureName = null;
+    $scope.enrollResponse = null;
 
-    $scope.identify = function() {
+    // Useful for tasks 3.4 - 3.7
+    $scope.matches = [];
+    $scope.isDisabled = null; // disables button untill matches are returned
+    $scope.showTaken = null;  // show captured image used for identification
+    $scope.similarPath = null;
+    $scope.showSimilar = null;
 
-      $scope.isDisabled = true;
-      $scope.showTaken = true; //task 4.2
+    $scope.enroll = enroll;
+    $scope.identify = identify;
 
-      Identify.post({image: getData()}, function(data) {
-            $scope.isDisabled = false;
+    function identify() {
 
-            $scope.matches = data;
+      // TODO: Task 3.4 Identify top matches for captured image
+      // HINT: use `sendImage` from ./recognition.factory.js
 
-          // TODO: task 4.1 - sort the response according to score
-           /* var sorted = data.sort(function(a, b) {
-              return a.score - b.score;
-            });
-            $scope.matches = sorted.reverse();*/
+      // TODO: Task 3.5 Sort matches according to score (resemblance)
+      // HINT: https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Array/sort
 
-            //TODO: task 4.2 - show most similar image
+      // TODO: Task 3.6 Show captured image used for identification
+      // TODO: Task 3.7 Show top matched image
 
-            /*$scope.showTaken = false;
+    }
 
-            $scope.similarPath = '/openbr/faces/' + $scope.matches[0].name + '.jpg';
-            $scope.showSimilar = true;*/
-          });
+    // TODO: Task 3.2 Enroll user using live capture
+    // HINT: get user name via ng-model from live-capture.html
+    //       use User.add from user/user.factory.js
+    //       use getData() to get imageData
 
-    };
+    function enroll() {
+      // TODO: Task 3.3 Display info about (un)successful enrollment
+    }
 
-      //TODO: task 5 - implement form validation in live-capture.html id="liveCaptureName" - disable enroll button on
-      // validation error
-
-    $scope.enroll = function() {
-      $scope.enrollStatusOK = false;
-      $scope.enrollStatusError = false;
-
-      User.addUser($scope.liveCaptureName, getData()).then(function(data) {
-        $scope.enrollResponseOK = data;
-        $scope.enrollStatusOK = true;
-        $scope.liveCaptureName = '';
-      }, function(error) {
-        $scope.enrollResponseError = error;
-        $scope.enrollStatusError = true;
-      });
-    };
-
+    // Captures image and returns it's dataUrl
     function getData() {
-          var video = $scope.identifyChannel.video;
-          var canvas = document.createElement('canvas');
-          canvas.width = 640;
-          canvas.height = 480;
-          canvas.getContext('2d').drawImage(video, 0, 0, canvas.width, canvas.height);
+      var video = $scope.identifyChannel.video;
+      var canvas = document.createElement('canvas');
+      canvas.width = 640;
+      canvas.height = 480;
+      canvas.getContext('2d')
+            .drawImage(video, 0, 0, canvas.width, canvas.height);
 
-          var data = canvas.toDataURL('image/jpeg');
-          $scope.dataURL = data;
-          return Utils.strip64(data);
-        }
+      var data = canvas.toDataURL('image/jpeg');
+      $scope.dataURL = data;
+      return Utils.strip64(data);
+    }
   }
 
 })();

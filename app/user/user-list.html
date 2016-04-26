@@ -3,8 +3,7 @@
     <div class="form-group">
         <button ng-disabled="isDisabled" ng-click="listAll()" type="submit" class="btn btn-default"><i class="fa fa-list"></i>List</button>
         <ul class="list-group">
-          <li class="list-group-item animated bounceOut"
-              ng-repeat="face in faces" >{{face.name}}</li>
+          <li class="list-group-item" ng-repeat="face in faces">{{face.name}}</li>
         </ul>
     </div>
 </form>

@@ -3,25 +3,37 @@
 
     <div class="form-group">
         <label for="liveCaptureName">Name</label>
-        <input id="liveCaptureName" name="liveEnrollName" ng-model="liveCaptureName" type="text" class="form-control"
-               placeholder="Enter name" ><!--required task5 -->
-        <button type="submit" ng-disabled="isDisabled" class="btn btn-default" ng-click="identify()"><i class="fa fa-male"></i> identify</button>
-        <button type="submit" class="btn btn-success" ng-click="enroll()"><i class="fa fa-floppy-o"></i><!--ng-disabled="liveEnrollForm.liveEnrollName.$error.required" task5-->
-            enroll
-        </button><!--<span ng-show="liveEnrollForm.liveEnrollName.$error.required"> Empty name not allowed..</span> task5-->
+        <!-- TODO: Task 3.2 Enroll user - get user name
+             HINT: ng-model (https://docs.angularjs.org/api/ng/directive/ngModel) -->
+        <input id="liveCaptureName" name="liveEnrollName" type="text" class="form-control"
+               placeholder="Enter name" >
+        <button type="submit" class="btn btn-default"><i class="fa fa-male"></i> identify</button>
+        <button type="submit" class="btn btn-success"><i class="fa fa-floppy-o"></i> enroll</button>
     </div>
     <div class="form-group">
-        <span ng-repeat="match in matches">{{match.name}}:{{match.score}} |</span>
+      <!-- TODO: Task 3.4, 3.5 List matched users
+           HINT: use ng-repeat (https://docs.angularjs.org/api/ng/directive/ngRepeat)-->
+      <!-- TODO: Task 3.8 List only TOP 5 matches
+           HINT: use angular filter (https://docs.angularjs.org/api/ng/filter) -->
     </div>
     <div class="form-group">
-        <span ng-show="enrollStatusOK">{{enrollResponseOK.name}} enrolled ...</span>
-        <span ng-show="enrollStatusError">{{enrollResponseError.data}}</span>
+      <!-- TODO: Task 3.3 Display info about (un)successful enrollment
+           HINT: use ng-show (https://docs.angularjs.org/api/ng/directive/ngShow) -->
+        <span><!-- user enrolment information --></span>
     </div>
     <div class="topspace embed-responsive embed-responsive-4by3">
-        <webcam channel="identifyChannel"></webcam>
+        <!-- TODO: Task 3.1 Add webcam directive
+             HINT: (https://github.com/jonashartmann/webcam-directive#set-a-channel-to-bind-data)
+                    use `identifyChannel` as channel name
+        -->
     </div>
     <div class="topspace embed-responsive embed-responsive-4by3">
+        <!-- TODO: Task 3.6, 3.7 Show image captured and top matched image
+             HINT: use ng-show -->
+
+        <!-- captured image -->
         <img ng-show="showTaken" class="img-responsive" data-ng-src="{{dataURL}}"/>
-        <!--<img ng-show="showSimilar" class="img-responsive" ng-src="{{similarPath}}"> task 4-->
+        <!-- top match -->
+        <img ng-show="showSimilar" class="img-responsive" ng-src="{{similarPath}}" />
     </div>
 </form>

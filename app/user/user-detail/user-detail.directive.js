@@ -7,24 +7,11 @@
     .directive('userDetail', userDetail);
 
   function userDetail() {
-      // TODO: task no 7 - implement user-detail directive
-      /*var directive = {
-        bindToController: true,
-        scope: {
-          userName: '@', //TODO:ZH
-          userPic: '@'
-        },
-        controller: UserDetailController,
-        controllerAs: 'userDetailVm',
-        link: link,
-        restrict: 'E',
-        templateUrl: 'user/user-detail/user-detail.template.html'
-      };
-
-      function link(scope, element, attrs) {
-      }
-
-      return directive;*/
+      // TODO: Task 4.1 Create custom directive
+      //       that displays user name and user picture
+      // HINT: it's element directive
+      //       it has two scope properties userName and userPic
+      //       https://docs.angularjs.org/guide/directive
     }
 
   function UserDetailController() {
